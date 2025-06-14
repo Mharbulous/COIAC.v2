@@ -1,0 +1,3 @@
+[submodule "modules/Front-First-Method"]
+	path = modules/Front-First-Method
+	url = https://github.com/Mharbulous/Front-First-Method.git
