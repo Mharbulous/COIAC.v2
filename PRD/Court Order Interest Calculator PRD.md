@@ -117,6 +117,17 @@ Based on the target users and their goals, the following features are essential 
 8.  **Detailed Breakdown Output (Must-Have):** Display of the total interest calculated, along with a breakdown showing how interest accrues over different periods if rates change.
 9.  **Export/Print Functionality (Must-Have):** Option to export the calculation results (e.g., to PDF or a printable format) for legal documentation.
 10. **Clear Error Handling/Validation (Nice-to-Have):** User-friendly messages for invalid inputs (e.g., end date before start date, non-numeric inputs).
+11. **Historical Interest Rate Lookup (Must-Have):** A dedicated section or tool within the application to look up historical BC Court Order interest rates for specific periods, independent of a calculation.
+12. **Multiple Special Damages Entries (Must-Have):** Ability to add and manage multiple special damages entries within a single calculation, each with its own date and amount.
+13. **Payment/Credit Tracking (Must-Have):** Functionality to input and account for partial payments or credits made against the principal amount during the interest accrual period, adjusting the principal for subsequent interest calculations.
+14. **Print Preview (Must-Have):** A dedicated print preview mode before actual printing, allowing users to verify the layout and content.
+    *Note: This feature is inherently supported by the application's skeuomorphic interface, which is designed to resemble standard US letterhead paper, and its print media attributes are calibrated to match the browser's built-in print preview functionality.*
+15. **Customizable Date Formats (Nice-to-Have):** Option for users to select their preferred date input/output format (e.g., MM/DD/YYYY, DD-MM-YYYY).
+16. **Case Management/Saving Calculations (Nice-to-Have):** Ability for lawyers to save, load, and manage multiple calculation cases within the application (e.g., using local storage or simple file export/import).
+17. **Audit Trail/Calculation Log (Nice-to-Have):** A feature that logs all inputs and changes made during a calculation session, providing an audit trail for verification.
+18. **Clear Calculation Methodology Explanation (Nice-to-Have):** A help section or tooltip explaining *how* the interest is calculated according to the BC Court Order Interest Act, especially for special damages and rate changes.
+19. **Responsive Design for Desktop (Nice-to-Have):** Ensuring the application gracefully adapts to various desktop screen sizes (e.g., different monitor resolutions) for professional use.
+
 
 ### 4.2 User Inputs and Controls
 
