@@ -1,0 +1,402 @@
+<!DOCTYPE html> <html lang=en class=hydrated style><!--
+ Page saved with SingleFile 
+ url: https://courtorderinterestcalculator.com/ 
+ saved date: Sat Jun 14 2025 14:54:39 GMT-0700 (Pacific Daylight Time)
+--><meta charset=utf-8>
+<style data-styles>.hydrated{visibility:inherit}</style>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<title>Court Order Interest Calculator</title>
+<style>:root{--page-background-color:#e0e0e0;--paper-background-color:white;--input-background-color:#e0f2f7;--table-header-background-color:#f0f0f0;--border-color:black;--focus-outline-color:#a0a0a0;--text-color:black;--negative-currency-color:red;--tooltip-background-color:#f8f8f8;--tooltip-border-color:#ccc;--help-icon-color:#4a90e2;--font-family:Arial,sans-serif;--base-font-size:10pt;--title-font-size:13pt;--print-font-size:10pt;--paper-width:9.27in;--paper-height:12in;--paper-padding:0.75in;--paper-scale:1;--label-width-dates:1.2in;--value-width-right:1.5in;--currency-column-width:1.5in;--base-line-height:1.2;--table-line-height:1.3;--spacing-unit:4pt}@page{size:letter;margin:0}body{display:flex;justify-content:center;align-items:flex-start;min-height:100vh;background-color:var(--page-background-color);margin:0;padding:calc(var(--spacing-unit)*5);color:var(--text-color)}body,input,button,table,th,td,div,span,h1{font-family:var(--font-family);font-size:var(--base-font-size)}.currency{white-space:nowrap}.text-right{text-align:right!important}.text-center{text-align:center!important}.text-left{text-align:left!important}.bold{font-weight:bold!important}.ink-layer{min-height:var(--paper-height);box-sizing:border-box}h1{text-align:center;font-weight:bold;font-size:var(--title-font-size);margin-top:0;margin-bottom:calc(var(--spacing-unit)*4.5);text-transform:none;line-height:var(--base-line-height)}h1 i{font-style:italic}.editable-fields-section{margin-bottom:calc(var(--spacing-unit)*3)}.field-row{display:flex;justify-content:space-between;align-items:center}.editable-fields-section .field-row{margin-bottom:calc(var(--spacing-unit)*0.75)}.section-title{font-weight:bold;margin-top:calc(var(--spacing-unit)*3);margin-bottom:var(--spacing-unit);line-height:var(--base-line-height)}td.label.text-right.bold{padding-left:0;padding-right:0}.right-field{display:flex;justify-content:flex-end;align-items:center}.right-field .label{font-weight:bold;text-align:right;margin-right:calc(var(--spacing-unit)*2);flex-shrink:0}.right-field .value{width:var(--value-width-right);flex-shrink:0;display:flex;justify-content:flex-end}.right-field .label{min-width:60px}.right-field input[type="text"]{border:none;background-color:var(--input-background-color);padding:var(--spacing-unit);font-family:var(--font-family);font-size:inherit;box-sizing:border-box;text-align:right;width:100%}.right-field input[type="text"]:focus{outline:1px solid var(--focus-outline-color)}[data-input="jurisdictionSelect"]{font-family:var(--font-family);font-size:inherit;border:none;padding:calc(var(--spacing-unit)*0.5) var(--spacing-unit);background-color:white;border-radius:0;width:100%;text-align:right;text-align-last:right;appearance:none;-webkit-appearance:none;-moz-appearance:none;box-sizing:border-box}.checkbox-container{display:flex;align-items:center}.checkbox-container.left{justify-content:flex-start}.checkbox-container input[type="checkbox"]{margin:0 5px 0 0}.checkbox-container label{font-family:var(--font-family);font-weight:normal;cursor:pointer;white-space:nowrap}.editable-fields-section .checkbox-container label{color:#3a7bc8}.editable-fields-section .checkbox-container input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:14px;height:14px;position:relative;margin-right:6px;vertical-align:-2px;cursor:pointer;border:1px solid #3a7bc8;border-radius:2px;outline:none;background-color:white}.editable-fields-section .checkbox-container input[type="checkbox"]:checked{background-color:#4a90e2;border-color:#4a90e2}.editable-fields-section .checkbox-container input[type="checkbox"]:checked::after{content:"✓";display:block;position:absolute;top:-1px;left:2px;font-size:12px;color:white}input[type="text"]:hover,input[type="number"]:hover,select:hover,.custom-date-input:hover,.special-damages-date:hover,.special-damages-description:hover,.special-damages-amount:hover,[data-input]:hover:not([type="checkbox"]){outline:1px solid #3a7bc8;box-sizing:border-box}input:focus,select:focus,.custom-date-input:focus,.special-damages-date:focus,.special-damages-description:focus,.special-damages-amount:focus,[data-input]:focus:not([type="checkbox"]){outline:1px solid var(--focus-outline-color);border:none}table:not(.dates-table){width:100%;border-collapse:collapse;margin-bottom:var(--spacing-unit);line-height:var(--table-line-height)}th,td{padding:calc(var(--spacing-unit)*0.75) calc(var(--spacing-unit)*1.5);vertical-align:top}.interest-table th,.interest-table td{border:1px solid var(--border-color)}.interest-table th{background-color:var(--table-header-background-color);font-weight:bold;text-align:center;white-space:nowrap}.interest-table tfoot .total td{border:none;border-top:1px solid var(--border-color);font-weight:bold;padding-top:var(--spacing-unit)}.interest-table tfoot .total td[data-display="prejudgmentPrincipalTotal"],.interest-table tfoot .total td[data-display="postjudgmentPrincipalTotal"]{font-weight:normal}.interest-table tfoot .total td[data-display$="TotalDays"],.interest-table tfoot .total td[data-display$="DateCell"]{text-align:left}.interest-table tfoot .total td:not([colspan]){text-align:right}.interest-table tfoot{margin-top:0}#prejudgmentTable,#postjudgmentTable{table-layout:auto;width:100%}#prejudgmentTable th:nth-child(1),#prejudgmentTable td:nth-child(1),#postjudgmentTable th:nth-child(1),#postjudgmentTable td:nth-child(1){width:1%;white-space:nowrap;text-align:left}#prejudgmentTable th:nth-child(2),#prejudgmentTable td:nth-child(2),#postjudgmentTable th:nth-child(2),#postjudgmentTable td:nth-child(2){width:100%;text-align:left}#prejudgmentTable th:nth-child(3),#prejudgmentTable td:nth-child(3),#postjudgmentTable th:nth-child(3),#postjudgmentTable td:nth-child(3){width:1%;white-space:nowrap;text-align:center}#prejudgmentTable th:nth-child(4),#prejudgmentTable td:nth-child(4),#postjudgmentTable th:nth-child(4),#postjudgmentTable td:nth-child(4){width:1%;white-space:nowrap;text-align:right}#prejudgmentTable th:nth-child(5),#prejudgmentTable td:nth-child(5),#postjudgmentTable th:nth-child(5),#postjudgmentTable td:nth-child(5){width:1%;white-space:nowrap;text-align:right}.add-special-damages-btn{max-width:100%;word-wrap:break-word}.interest-calculation-details{display:block;margin-top:4px;text-align:right}.interest-calculation-details.days-only{text-align:right}.interest-calculation-details.days-only .days-count{text-align:right}.summary-table{margin-top:calc(var(--spacing-unit)*1);margin-bottom:0;width:100%;border-collapse:collapse;table-layout:fixed}.summary-table td{border:none;padding:calc(var(--spacing-unit)*0.75) calc(var(--spacing-unit)*1.5);vertical-align:top;line-height:var(--table-line-height)}.summary-table th:nth-child(1),.summary-table td:nth-child(1){width:40%;text-align:left}.summary-table th:nth-child(2),.summary-table td:nth-child(2){width:30%;text-align:right}.summary-table th:nth-child(3),.summary-table td:nth-child(3){width:30%;text-align:right}.summary-table tbody td{text-align:right}.summary-table tbody tr:nth-child(2){padding-bottom:0}.summary-table tbody tr:nth-child(2) td{padding-bottom:0}.summary-table tbody tr:nth-child(3){padding-top:0}.summary-table tbody tr:nth-child(3) td{padding-top:0}.summary-table tbody td:first-child{text-align:left}.summary-table tbody td:nth-child(2){text-align:right;padding-left:0;padding-right:0}.date-label-wrapper{display:flex;justify-content:flex-end;align-items:center;width:100%;padding:0;box-sizing:border-box;height:100%}.date-prefix-label{margin-right:calc(var(--spacing-unit)*1);white-space:nowrap}.date-label-wrapper .custom-date-input{flex-grow:0;width:auto;min-width:90px;max-width:100px;text-align:right}.summary-table input[type="text"]{font-family:var(--font-family);font-size:var(--base-font-size);border:none;background-color:var(--input-background-color)}.summary-table input[data-input="amountValue"]{text-align:right;padding:0;height:100%}.date-cell-container{width:100%;box-sizing:border-box}.summary-table tr td:nth-child(2):empty::after{content:"";display:inline-block;width:100%;min-height:24px}.summary-table tfoot td{padding-top:var(--spacing-unit);border-top:1px solid var(--border-color)}.summary-table tfoot .total-row td{font-weight:bold}.summary-table tfoot .per-diem-row td{font-style:italic;border-top:none;padding-top:calc(var(--spacing-unit)*0.5)}.summary-table tfoot td[colspan]{text-align:right}.summary-table tfoot td:not([colspan]){text-align:right}.delete-icon{color:#cc0000;cursor:pointer;opacity:0.6;transition:opacity 0.2s,transform 0.2s;display:inline-flex;justify-content:center;align-items:center;margin-left:6px;vertical-align:middle}.delete-icon ion-icon{font-size:18px;width:18px;height:18px}.delete-icon:hover{opacity:1;transform:scale(1.15);color:#ff0000}.description-container{display:flex;justify-content:space-between;align-items:center;width:100%}.add-special-damages-btn{background-color:#4a90e2;color:white;border:none;border-radius:4px;padding:4px 8px;font-size:0.85em;cursor:pointer;margin-left:10px;font-weight:500;transition:background-color 0.2s;white-space:nowrap}.add-special-damages-btn:hover{background-color:#3a7bc8}.add-special-damages-btn:active{background-color:#2a6cb8;transform:scale(0.98)}.special-damages-row{transition:background-color 0.5s ease}@keyframes highlight-fade{0%{background-color:#e0f0ff}100%{background-color:transparent}}.special-damages-description,.special-damages-amount{border:none;background-color:var(--input-background-color);padding:0;font-family:var(--font-family);font-size:inherit;width:100%;height:100%;box-sizing:border-box}.end-date{margin-top:4px}.special-damages-description{text-align:left}.special-damages-amount{text-align:right}.special-damages-description::placeholder{color:#999;font-style:italic;opacity:0.7}.custom-date-input{border:none;padding:0;font-family:var(--font-family);font-size:inherit;width:100%;height:100%;box-sizing:border-box;text-align:right}.custom-date-input:focus{outline:1px solid var(--focus-outline-color)}.custom-date-input::placeholder{color:#999;opacity:0.7}.help-icon{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;background-color:var(--help-icon-color);color:white;font-size:10px;font-weight:bold;cursor:help;vertical-align:middle;position:relative;margin-right:5px}.tooltip{position:absolute;z-index:1000;width:250px;background-color:var(--tooltip-background-color);border:1px solid var(--tooltip-border-color);border-radius:4px;padding:8px;font-size:10pt;font-weight:normal;color:var(--text-color);box-shadow:0 2px 5px rgba(0,0,0,0.2);pointer-events:none;opacity:0;transition:opacity 0.3s;text-align:left;line-height:1.3;top:0;right:100%;margin-right:5px}.help-icon:hover .tooltip,.help-icon:focus .tooltip{opacity:1;pointer-events:auto}.demo-banner{background-color:#ffeb3b;color:#000;padding:10px 20px;font-weight:bold;width:100%;left:0;z-index:1000;box-shadow:0 2px 4px rgba(0,0,0,0.1);transform:translateY(-100%);transition:transform 0.5s ease-in-out;display:flex;align-items:center;justify-content:center;box-sizing:border-box}.close-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;background-color:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;transition:background-color 0.3s;z-index:10}.close-icon:hover{background-color:#333}.demo-banner span{font-size:2rem;margin:0 auto;padding:0 30px;text-align:center}body.demo-mode{transition:padding-top 0.5s ease-in-out}.demo-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);transform-origin:center center;font-size:2.4rem;opacity:0.2;color:#ff0000;pointer-events:none;white-space:nowrap;z-index:1;font-family:Arial,sans-serif;font-weight:bold;letter-spacing:2px;text-transform:uppercase}#main-demo-watermark{width:auto;height:auto;margin-top:140px}.payment-button{background-color:#4CAF50;color:white;padding:10px 15px;border:none;border-radius:4px;cursor:pointer;font-weight:bold;margin-left:15px;margin-right:20px;transition:background-color 0.3s;font-size:2rem}.payment-button:hover{background-color:#45a049}.demo-modal{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);z-index:2000;justify-content:center;align-items:center}body:has(.paid-mode-indicator){padding-top:40px}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.action-button{padding:8px 16px;border-radius:4px;font-weight:bold;cursor:pointer;border:none;transition:background-color 0.3s ease;width:var(--value-width-right);text-align:center;white-space:nowrap}.console-layer>#action-button.action-button.buy-now{position:absolute;top:90px;left:50%;transform:translateX(-50%);right:auto;z-index:100;pointer-events:auto}.action-button.buy-now{color:white}.action-button.buy-now:hover{background-color:#45a049}.action-button.print{background-color:#4a90e2;color:white}.action-button.print:hover{background-color:#3a7bc8}.action-button.print:active{background-color:#2a6cb8;transform:scale(0.98)}#clear-button{background-color:#e74c3c;color:white}.action-button.clear:hover,#clear-button:hover{background-color:#c0392b}#clear-button{width:var(--value-width-right)}@keyframes breathe-shadow{0%{box-shadow:0 3px 6px rgba(0,0,0,0.2)}50%{box-shadow:0 4px 8px rgba(0,0,0,0.25)}100%{box-shadow:0 3px 6px rgba(0,0,0,0.2)}}@keyframes subtle-scale{0%{transform:scale(1)}50%{transform:scale(1.01)}100%{transform:scale(1)}}.action-button.buy-now{box-shadow:0 3px 6px rgba(0,0,0,0.2);animation:breathe-shadow 6s ease-in-out infinite;overflow:hidden;border:1px solid transparent;box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#4CAF50;transition:transform 0.3s ease,box-shadow 0.3s ease}.action-button.buy-now::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background-color:#4CAF50;border-radius:3px;z-index:-1;transform-origin:center;animation:subtle-scale 6s ease-in-out infinite}@keyframes pulse{0%{opacity:0}50%{opacity:0.3}100%{opacity:0}}.action-button.buy-now{text-shadow:0 0 0 transparent;backface-visibility:hidden;perspective:1000px;will-change:transform}.action-button.buy-now:hover{animation-play-state:paused;transform:translateY(-2px) translateZ(0);box-shadow:0 6px 12px rgba(0,0,0,0.3)}.action-button.buy-now:hover::before,.action-button.buy-now:hover::after{animation-play-state:paused}@keyframes shimmer{0%,80%{background-position:-200%0;opacity:0}85%{background-position:-150%0;opacity:0.9}90%{background-position:0 0;opacity:1}95%{background-position:150%0;opacity:0.9}100%{background-position:200%0;opacity:0}}.action-button.buy-now::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.1) 45%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0.1) 55%,rgba(255,255,255,0) 100%);background-size:200% 100%;border-radius:3px;z-index:5;pointer-events:none;animation:shimmer 7s linear infinite;opacity:0.8}.action-button.buy-now span.shimmer-overlay{position:absolute;top:0;left:0;right:0;bottom:0;z-index:12;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.05) 45%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.05) 55%,rgba(255,255,255,0) 100%);background-size:200% 100%;border-radius:3px;pointer-events:none;animation:shimmer 5s linear infinite;animation-delay:2s}@media (prefers-reduced-motion:reduce){.action-button.buy-now,.action-button.buy-now::before,.action-button.buy-now::after{animation:none}}@media screen and (max-width:799px){body>*:not(.mobile-detection-message){display:none!important}}@media (max-width:360px){}.screen-only{box-sizing:border-box}.two-layer-container{position:relative;width:100%;max-width:900px;display:flex;flex-direction:column;align-items:center;margin:0 auto}.paper-layer{position:absolute;z-index:1;display:flex;flex-direction:column;align-items:center;gap:30px;width:100%;top:0;left:0}.page-card{width:var(--paper-width);height:var(--paper-height);background-color:var(--paper-background-color);box-shadow:0 0 10px rgba(0,0,0,0.1);position:relative}.page-card::before{content:"";position:absolute;top:var(--paper-padding);right:var(--paper-padding);bottom:var(--paper-padding);left:var(--paper-padding);border:2px dashed white;pointer-events:none;z-index:5;box-sizing:border-box}.page-number{position:absolute;bottom:0.25in;left:50%;transform:translateX(-50%);color:#3a7bc8;font-size:0.8rem}.ink-layer{position:relative;z-index:2;background-color:transparent;box-shadow:none;width:var(--paper-width);padding:var(--paper-padding) var(--paper-padding)0 var(--paper-padding);margin-bottom:0}.console-layer{position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;pointer-events:none}.console-layer>*{pointer-events:auto}</style>
+<style>@-webkit-keyframes fpFadeInDown{from{opacity:0;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}to{opacity:1;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@keyframes fpFadeInDown{from{opacity:0;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}to{opacity:1;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}</style>
+<meta name=referrer content=no-referrer><link type=image/x-icon rel="shortcut icon" href=data:,><style>.sf-hidden{display:none!important}</style><link rel=canonical href=https://courtorderinterestcalculator.com/><meta http-equiv=content-security-policy content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"><style>img[src="data:,"],source[src="data:,"]{display:none!important}</style></head>
+<body class=demo-mode>
+<div class="mobile-detection-message sf-hidden">
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+<div class=two-layer-container>
+ 
+ <div class=paper-layer><div class=page-card><div class=page-number>Page 1</div></div><div class=page-card><div class=page-number>Page 2</div></div></div>
+ 
+ 
+ <div class=ink-layer>
+ <div class=editable-fields-section>
+ 
+ <div class=field-row>
+ <div class="checkbox-container left">
+ <input type=checkbox data-input=showPrejudgmentCheckbox id=showPrejudgmentCheckbox checked value=on>
+ <label for=showPrejudgmentCheckbox>Calculate prejudgment interest</label>
+ </div>
+ <div class=right-field>
+ <span class=label>Jurisdiction</span>
+ <span class=value>
+ <select data-input=jurisdictionSelect>
+                            <option value=BC selected>British Columbia</option>
+                            
+                        </select>
+ </span>
+ </div>
+ </div>
+ 
+ 
+ <div class=field-row>
+ <div class="checkbox-container left">
+ <input type=checkbox data-input=showPostjudgmentCheckbox id=showPostjudgmentCheckbox checked value=on>
+ <label for=showPostjudgmentCheckbox>Show postjudgment interest</label>
+ </div>
+ <div class=right-field>
+ <span class=label>File No.</span>
+ <span class=value>
+ <input type=text data-input=fileNo value>
+ </span>
+ </div>
+ </div>
+ 
+ 
+ <div class=field-row>
+ <div class="checkbox-container left">
+ <input type=checkbox data-input=showPerDiemCheckbox id=showPerDiemCheckbox checked value=on>
+ <label for=showPerDiemCheckbox>Show per diem</label>
+ </div>
+ <div class=right-field>
+ <span class="label bold">Registry</span>
+ <span class=value>
+ <input type=text data-input=registry value=Vancouver>
+ </span>
+ </div>
+ </div>
+ </div>
+ 
+<div id=title-container style=position:relative;text-align:center;margin-bottom:60px>
+ <h1>BC <i>Court Order Interest Act</i> Calculator</h1>
+ 
+ <button id=print-button class="action-button print" style=position:absolute;top:0;right:0>Print</button>
+ <button id=clear-button class="action-button clear" style=position:absolute;top:40px;right:0>Clear</button>
+ <div class=demo-watermark id=main-demo-watermark>DEMONSTRATION</div></div>
+ 
+ <div class=section-title>
+ Judgment Date
+ <div class=judgment-date-container style=display:inline-block;position:relative>
+ <input type=text class="custom-date-input flatpickr-input" data-input=judgmentDate placeholder=YYYY-MM-DD maxlength=10 style=margin-left:10px;width:100px;font-weight:bold;background-color:rgb(224,242,247) value=2024-12-11>
+ </div>
+ </div>
+ <table class=summary-table> 
+ <tbody data-display=summaryTableBody>
+ <tr>
+ <td class=text-left data-display=itemLabel>
+ <span data-display=itemText>General Damages &amp; Debt</span>
+ 
+ </td>
+ <td class=text-center>
+ 
+ </td>
+ <td class=text-right>
+ <input type=text data-input=amountValue value=$10,000.00>
+ </td>
+ </tr>
+ 
+ <tr>
+ <td class=text-left data-display=itemLabel>
+ <span data-display=itemText>Special Damages</span>
+ <span class="help-icon screen-only" tabindex=0 role=button aria-label=Help data-display=helpIcon style=display:none>?
+ 
+ </span>
+ </td>
+ <td class=text-center data-display=dateValue></td>
+ <td class=text-right data-display=amountValue><span class=currency>$580.30</span></td>
+ </tr>
+ 
+ <tr>
+ <td class=text-left data-display=itemLabel>
+ <span data-display=itemText>Non-pecuniary Damages</span>
+ <span class="help-icon screen-only" tabindex=0 role=button aria-label=Help data-display=helpIcon style=display:none>?
+ 
+ </span>
+ </td>
+ <td class=text-center>
+ 
+ </td>
+ <td class=text-right>
+ <input type=text data-input=amountValue value=$0.00>
+ </td>
+ </tr>
+ 
+ <tr>
+ <td class=text-left data-display=itemLabel>
+ <span data-display=itemText>Costs &amp; Disbursements</span>
+ <span class="help-icon screen-only" tabindex=0 role=button aria-label=Help data-display=helpIcon style=display:none>?
+ 
+ </span>
+ </td>
+ <td class=text-center>
+ 
+ </td>
+ <td class=text-right>
+ <input type=text data-input=amountValue value=$0.00>
+ </td>
+ </tr>
+ 
+ <tr>
+ <td class=text-left data-display=itemLabel>
+ <span data-display=itemText>Prejudgment Interest</span>
+ 
+ </td>
+ <td class="text-center date-cell-container"> 
+ <div class=date-label-wrapper> 
+ <span class="help-icon screen-only" tabindex=0 role=button aria-label="Help for Prejudgment Interest" data-display=helpIcon>?
+ <span class=tooltip data-display=tooltipText>Cause of Action Date. Prejudgment interest will start to accrue from this date.</span>
+ </span>
+ <span data-display=dateLabel class=date-prefix-label>from</span> 
+ <input type=text class="custom-date-input flatpickr-input" data-input=dateValue placeholder=YYYY-MM-DD maxlength=10 style=background-color:rgb(224,242,247) value=2019-04-14>
+ </div>
+ </td>
+ <td class=text-right data-display=amountValue><span class=currency>$1,561.55</span></td>
+ </tr>
+ 
+ <tr>
+ <td class=text-left data-display=itemLabel>
+ <span data-display=itemText>Postjudgment Interest</span>
+ 
+ </td>
+ <td class="text-center date-cell-container"> 
+ <div class=date-label-wrapper> 
+ <span class="help-icon screen-only" tabindex=0 role=button aria-label="Help for Postjudgment Interest" data-display=helpIcon>?
+ <span class=tooltip data-display=tooltipText>Accrual Date. Postjudgment interest will accrue up to this date.</span>
+ </span>
+ <span data-display=dateLabel class=date-prefix-label>until</span> 
+ <input type=text class="custom-date-input flatpickr-input" data-input=dateValue placeholder=YYYY-MM-DD maxlength=10 style=background-color:rgb(224,242,247) value=2025-06-14>
+ </div>
+ </td>
+ <td class=text-right data-display=amountValue><span class=currency>$344.09</span></td>
+ </tr>
+ </tbody>
+ <tfoot>
+ <tr class=total-row>
+ <td colspan=2 class="label text-right bold" data-display=summaryTotalLabel>TOTAL AS OF 2025-06-14</td>
+ <td class="amount text-right bold" data-display=summaryTotal><span class=currency>$12,485.94</span></td>
+ </tr>
+ <tr class=per-diem-row>
+ <td colspan=2 class="label text-right italic">Per Diem</td>
+ <td class="amount text-right italic" data-display=summaryPerDiem><span class=currency>$2.02</span></td>
+ </tr>
+ </tfoot>
+ </table>
+ 
+ <div id=print-warning class="print-only sf-hidden">
+ 
+ </div>
+ 
+ <div>
+ 
+ <div class="section-title breakable">Prejudgment Interest Calculations</div>
+ 
+ <div data-display=prejudgmentSection>
+ <table class=interest-table id=prejudgmentTable>
+ <thead>
+ 
+ <tr><th>Date<th>Description<th>Rate<th>Principal<th>Interest</tr>
+ </thead>
+ <tbody data-display=prejudgmentTableBody><tr><td class=text-left>2019-04-14<td class=text-left><div class=description-container><span>79 days</span><button class=add-special-damages-btn data-date=2019-04-14 data-amount=49.78082191780822>add special damages</button></div><td class=text-center>2.30%<td class=text-right><span class=currency>$10,000.00</span><td class=text-right><span class=currency>$49.78</span><tr class="special-damages-row breakable"><td class=text-left><input type=text class="special-damages-date custom-date-input flatpickr-input" data-type=special-damages-date placeholder=YYYY-MM-DD maxlength=10 style=background-color:rgb(224,242,247) value=2019-04-30><td class=text-left><input type=text class=special-damages-description placeholder="Describe special damages" data-type=special-damages-description value="Ambulance fees"><td class=text-center><td class=text-right><input type=text class=special-damages-amount data-type=special-damages-amount value=$320.00><td class=text-right><span class=delete-icon title="Delete special damages"><ion-icon name=trash-outline role=img class="md hydrated"><template shadowrootmode=open><style>:host{display:inline-block;width:1em;height:1em;contain:strict;fill:currentcolor;box-sizing:content-box!important}:host .ionicon{stroke:currentcolor}.ionicon-fill-none{fill:none}.ionicon-stroke-width{stroke-width:var(--ionicon-stroke-width,32px)}.icon-inner,.ionicon,svg{display:block;height:100%;width:100%}:host(.flip-rtl) .icon-inner{transform:scaleX(-1)}:host(.icon-small){font-size:18px!important}:host(.icon-large){font-size:32px!important}:host(.ion-color){color:var(--ion-color-base)!important}:host(.ion-color-primary){--ion-color-base:var(--ion-color-primary,#3880ff)}:host(.ion-color-secondary){--ion-color-base:var(--ion-color-secondary,#0cd1e8)}:host(.ion-color-tertiary){--ion-color-base:var(--ion-color-tertiary,#f4a942)}:host(.ion-color-success){--ion-color-base:var(--ion-color-success,#10dc60)}:host(.ion-color-warning){--ion-color-base:var(--ion-color-warning,#ffce00)}:host(.ion-color-danger){--ion-color-base:var(--ion-color-danger,#f14141)}:host(.ion-color-light){--ion-color-base:var(--ion-color-light,#f4f5f8)}:host(.ion-color-medium){--ion-color-base:var(--ion-color-medium,#989aa2)}:host(.ion-color-dark){--ion-color-base:var(--ion-color-dark,#222428)}</style><div class=icon-inner><svg xmlns=http://www.w3.org/2000/svg class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" stroke-linecap=round stroke-linejoin=round class="ionicon-fill-none ionicon-stroke-width"></path><path stroke-linecap=round stroke-miterlimit=10 d="M80 112h352" class=ionicon-stroke-width></path><path d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224" stroke-linecap=round stroke-linejoin=round class="ionicon-fill-none ionicon-stroke-width"></path></svg></div></template></ion-icon></span><tr class=breakable><td class=text-left>2019-07-01<td class=text-left><div class=description-container><span>185 days</span><button class=add-special-damages-btn data-date=2019-07-01 data-amount=81.07561643835616>add special damages</button></div><td class=text-center>1.55%<td class=text-right><span class=currency>$10,320.00</span><td class=text-right><span class=currency>$81.08</span><tr class=breakable><td class=text-left>2020-01-01<td class=text-left><div class=description-container><span>183 days</span><button class=add-special-damages-btn data-date=2020-01-01 data-amount=121.26>add special damages</button></div><td class=text-center>2.35%<td class=text-right><span class=currency>$10,320.00</span><td class=text-right><span class=currency>$121.26</span><tr class=breakable><td class=text-left>2020-07-01<td class=text-left><div class=description-container><span>185 days</span><button class=add-special-damages-btn data-date=2020-07-01 data-amount=41.731147540983606>add special damages</button></div><td class=text-center>0.80%<td class=text-right><span class=currency>$10,320.00</span><td class=text-right><span class=currency>$41.73</span><tr class="special-damages-row breakable"><td class=text-left><input type=text class="special-damages-date custom-date-input flatpickr-input" data-type=special-damages-date placeholder=YYYY-MM-DD maxlength=10 style=background-color:rgb(224,242,247) value=2020-07-03><td class=text-left><input type=text class=special-damages-description placeholder="Describe special damages" data-type=special-damages-description value="Physiotherapy - 1 hour"><td class=text-center><td class=text-right><input type=text class=special-damages-amount data-type=special-damages-amount value=$220.50><td class=text-right><span class=delete-icon title="Delete special damages"><ion-icon name=trash-outline role=img class="md hydrated"><template shadowrootmode=open><style>:host { display: inline-block; width: 1em; height: 1em; contain: strict; fill: currentcolor; box-sizing: content-box !important; }
+:host .ionicon { stroke: currentcolor; }
+.ionicon-fill-none { fill: none; }
+.ionicon-stroke-width { stroke-width: var(--ionicon-stroke-width, 32px); }
+.icon-inner, .ionicon, svg { display: block; height: 100%; width: 100%; }
+:host(.flip-rtl) .icon-inner { transform: scaleX(-1); }
+:host(.icon-small) { font-size: 18px !important; }
+:host(.icon-large) { font-size: 32px !important; }
+:host(.ion-color) { color: var(--ion-color-base) !important; }
+:host(.ion-color-primary) { --ion-color-base: var(--ion-color-primary, #3880ff); }
+:host(.ion-color-secondary) { --ion-color-base: var(--ion-color-secondary, #0cd1e8); }
+:host(.ion-color-tertiary) { --ion-color-base: var(--ion-color-tertiary, #f4a942); }
+:host(.ion-color-success) { --ion-color-base: var(--ion-color-success, #10dc60); }
+:host(.ion-color-warning) { --ion-color-base: var(--ion-color-warning, #ffce00); }
+:host(.ion-color-danger) { --ion-color-base: var(--ion-color-danger, #f14141); }
+:host(.ion-color-light) { --ion-color-base: var(--ion-color-light, #f4f5f8); }
+:host(.ion-color-medium) { --ion-color-base: var(--ion-color-medium, #989aa2); }
+:host(.ion-color-dark) { --ion-color-base: var(--ion-color-dark, #222428); }
+</style><div class=icon-inner><svg xmlns=http://www.w3.org/2000/svg class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" stroke-linecap=round stroke-linejoin=round class="ionicon-fill-none ionicon-stroke-width"></path><path stroke-linecap=round stroke-miterlimit=10 d="M80 112h352" class=ionicon-stroke-width></path><path d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224" stroke-linecap=round stroke-linejoin=round class="ionicon-fill-none ionicon-stroke-width"></path></svg></div></template></ion-icon></span><tr class=breakable><td class=text-left>2021-01-01<td class=text-left><div class=description-container><span>182 days</span><button class=add-special-damages-btn data-date=2021-01-01 data-amount=26.279054794520547>add special damages</button></div><td class=text-center>0.50%<td class=text-right><span class=currency>$10,540.50</span><td class=text-right><span class=currency>$26.28</span><tr class=breakable><td class=text-left>2021-07-01<td class=text-left><div class=description-container><span>185 days</span><button class=add-special-damages-btn data-date=2021-07-01 data-amount=42.739561643835614>add special damages</button></div><td class=text-center>0.80%<td class=text-right><span class=currency>$10,540.50</span><td class=text-right><span class=currency>$42.74</span><tr class=breakable><td class=text-left>2022-01-01<td class=text-left><div class=description-container><span>182 days</span><button class=add-special-damages-btn data-date=2022-01-01 data-amount=36.79067671232876>add special damages</button></div><td class=text-center>0.70%<td class=text-right><span class=currency>$10,540.50</span><td class=text-right><span class=currency>$36.79</span><tr class=breakable><td class=text-left>2022-07-01<td class=text-left><div class=description-container><span>185 days</span><button class=add-special-damages-btn data-date=2022-07-01 data-amount=109.52012671232875>add special damages</button></div><td class=text-center>2.05%<td class=text-right><span class=currency>$10,540.50</span><td class=text-right><span class=currency>$109.52</span><tr class=breakable><td class=text-left>2023-01-01<td class=text-left><div class=description-container><span>182 days</span><button class=add-special-damages-btn data-date=2023-01-01 data-amount=254.90683150684927>add special damages</button></div><td class=text-center>4.85%<td class=text-right><span class=currency>$10,540.50</span><td class=text-right><span class=currency>$254.91</span><tr class=breakable><td class=text-left>2023-07-01<td class=text-left><div class=description-container><span>185 days</span><button class=add-special-damages-btn data-date=2023-07-01 data-amount=288.4920410958904>add special damages</button></div><td class=text-center>5.40%<td class=text-right><span class=currency>$10,540.50</span><td class=text-right><span class=currency>$288.49</span><tr class=breakable><td class=text-left>2024-01-01<td class=text-left><div class=description-container><span>183 days</span><button class=add-special-damages-btn data-date=2024-01-01 data-amount=252.972>add special damages</button></div><td class=text-center>4.80%<td class=text-right><span class=currency>$10,540.50</span><td class=text-right><span class=currency>$252.97</span><tr class=breakable><td class=text-left>2024-07-01<td class=text-left><div class=description-container><span>164 days</span><button class=add-special-damages-btn data-date=2024-07-01 data-amount=255.04554098360657>add special damages</button></div><td class=text-center>5.40%<td class=text-right><span class=currency>$10,540.50</span><td class=text-right><span class=currency>$255.05</span><tr class="special-damages-row breakable"><td class=text-left><input type=text class="special-damages-date custom-date-input flatpickr-input" data-type=special-damages-date placeholder=YYYY-MM-DD maxlength=10 style=background-color:rgb(224,242,247) value=2024-07-02><div class="end-date text-left">2024-12-11</div><td class=text-left><input type=text class=special-damages-description placeholder="Describe special damages" data-type=special-damages-description value=Oxycodone><div class="interest-calculation-details days-only"><span class=days-count>163 days</span></div><td class=text-center>&nbsp;<div class=interest-calculation-details>5.40%</div><td class=text-right><input type=text class=special-damages-amount data-type=special-damages-amount value=$39.80><td class=text-right><div style=display:flex;justify-content:flex-end;align-items:center><span class=delete-icon title="Delete special damages"><ion-icon name=trash-outline role=img class="md hydrated"><template shadowrootmode=open><style>:host { display: inline-block; width: 1em; height: 1em; contain: strict; fill: currentcolor; box-sizing: content-box !important; }
+:host .ionicon { stroke: currentcolor; }
+.ionicon-fill-none { fill: none; }
+.ionicon-stroke-width { stroke-width: var(--ionicon-stroke-width, 32px); }
+.icon-inner, .ionicon, svg { display: block; height: 100%; width: 100%; }
+:host(.flip-rtl) .icon-inner { transform: scaleX(-1); }
+:host(.icon-small) { font-size: 18px !important; }
+:host(.icon-large) { font-size: 32px !important; }
+:host(.ion-color) { color: var(--ion-color-base) !important; }
+:host(.ion-color-primary) { --ion-color-base: var(--ion-color-primary, #3880ff); }
+:host(.ion-color-secondary) { --ion-color-base: var(--ion-color-secondary, #0cd1e8); }
+:host(.ion-color-tertiary) { --ion-color-base: var(--ion-color-tertiary, #f4a942); }
+:host(.ion-color-success) { --ion-color-base: var(--ion-color-success, #10dc60); }
+:host(.ion-color-warning) { --ion-color-base: var(--ion-color-warning, #ffce00); }
+:host(.ion-color-danger) { --ion-color-base: var(--ion-color-danger, #f14141); }
+:host(.ion-color-light) { --ion-color-base: var(--ion-color-light, #f4f5f8); }
+:host(.ion-color-medium) { --ion-color-base: var(--ion-color-medium, #989aa2); }
+:host(.ion-color-dark) { --ion-color-base: var(--ion-color-dark, #222428); }
+</style><div class=icon-inner><svg xmlns=http://www.w3.org/2000/svg class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" stroke-linecap=round stroke-linejoin=round class="ionicon-fill-none ionicon-stroke-width"></path><path stroke-linecap=round stroke-miterlimit=10 d="M80 112h352" class=ionicon-stroke-width></path><path d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224" stroke-linecap=round stroke-linejoin=round class="ionicon-fill-none ionicon-stroke-width"></path></svg></div></template></ion-icon></span></div><div class=interest-calculation-details><span><span class=currency>$0.96</span></span></div></tbody>
+ 
+ <tfoot>
+ <tr class=total>
+ <td data-display=prejudgmentDateCell class=text-left style=font-weight:normal>2024-12-11</td>
+ <td data-display=prejudgmentTotalDays class=text-left style=font-weight:normal>Total: 2080 days</td>
+ <td></td>
+ <td class=text-right data-display=prejudgmentPrincipalTotal><span class=currency>$10,580.30</span></td>
+ <td data-display=prejudgmentInterestTotal class=text-right><span class=currency>$1,561.55</span></td>
+ </tr>
+ </tfoot>
+ </table>
+ </div>
+ </div>
+ 
+ <div>
+ 
+ <div class=page-break-spacer style=height:210.145px></div><div class="section-title breakable" id=postjudgmentTitle>Postjudgment Interest Calculations</div>
+ 
+ <div data-display=postjudgmentSection>
+ <table class=interest-table id=postjudgmentTable>
+ <thead>
+ 
+ <tr><th>Date<th>Description<th>Rate<th>Principal<th>Interest</tr>
+ </thead>
+ <tbody data-display=postjudgmentTableBody><tr><td class=text-left>2024-12-11<td class=text-left><div class=description-container><span>22 days</span></div><td class=text-center>7.30%<td class=text-right><span class=currency>$10,580.30</span><td class=text-right><span class=currency>$46.43</span><tr class=breakable><td class=text-left>2025-01-01<td class=text-left><div class=description-container><span>165 days</span></div><td class=text-center>5.90%<td class=text-right><span class=currency>$10,580.30</span><td class=text-right><span class=currency>$297.67</span></tbody>
+ 
+ <tfoot>
+ <tr class=total>
+ <td data-display=postjudgmentDateCell class=text-left style=font-weight:normal>2025-06-14</td>
+ <td data-display=postjudgmentTotalDays class=text-left style=font-weight:normal>Total: 187 days</td>
+ <td></td>
+ <td class=text-right data-display=postjudgmentPrincipalTotal><span class=currency>$10,580.30</span></td>
+ <td data-display=postjudgmentInterestTotal class=text-right><span class=currency>$344.09</span></td>
+ </tr>
+ </tfoot>
+ </table>
+ </div>
+ </div>
+ </div>
+ 
+ 
+ <div class=console-layer>
+ 
+ <div id=demo-mode-banner class=demo-banner style=position:fixed;top:-100px>
+ <div class=close-icon id=close-demo-banner>✕</div>
+ <span>CAUTION: Demo uses mock interest rates</span>
+ <button id=get-accurate-results class=payment-button>Buy Now - $24.99</button>
+ </div><div id=demo-modal class=demo-modal style=display:none>
+ 
+ </div><button id=action-button class="action-button buy-now">Buy Now - $24.99<span class=shimmer-overlay></span></button></div>
+ 
+ <template id=summary-row-editable-amount-only>
+        <tr>
+            <td class="text-left" data-display="itemLabel">
+                <span data-display="itemText"></span>
+                <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help" data-display="helpIcon">?
+                    <span class="tooltip" data-display="tooltipText"></span>
+                </span>
+            </td>
+            <td class="text-right">
+                <input type="text" data-input="amountValue">
+            </td>
+        </tr>
+    </template>
+ <template id=summary-row-editable-pecuniary>
+        <tr>
+            <td class="text-left" data-display="itemLabel">
+                <span data-display="itemText"></span>
+                <!-- Help icon removed -->
+            </td>
+            <td class="text-center">
+                <!-- Date input removed for pecuniary damages -->
+            </td>
+            <td class="text-right">
+                <input type="text" data-input="amountValue">
+            </td>
+        </tr>
+    </template>
+ <template id=summary-row-editable-amount>
+        <tr>
+            <td class="text-left" data-display="itemLabel">
+                <span data-display="itemText"></span>
+                <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help" data-display="helpIcon">?
+                    <span class="tooltip" data-display="tooltipText"></span>
+                </span>
+            </td>
+            <td class="text-center">
+                <!-- Date display removed for amount-editable rows -->
+            </td>
+            <td class="text-right">
+                <input type="text" data-input="amountValue">
+            </td>
+        </tr>
+    </template>
+ <template id=summary-row-editable-date>
+        <tr>
+            <td class="text-left" data-display="itemLabel">
+                <span data-display="itemText"></span>
+                <!-- Help icon moved to date cell -->
+            </td>
+            <td class="text-center date-cell-container"> <!-- Added class for styling -->
+                <div class="date-label-wrapper"> <!-- New wrapper for flex layout -->
+                    <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help" data-display="helpIcon">?
+                        <span class="tooltip" data-display="tooltipText"></span>
+                    </span>
+                    <span data-display="dateLabel" class="date-prefix-label"></span> <!-- Span for "from"/"until" -->
+                    <input type="text" class="custom-date-input" data-input="dateValue" placeholder="YYYY-MM-DD" maxlength="10">
+                </div>
+            </td>
+            <td class="text-right" data-display="amountValue">
+                <!-- Amount is displayed, not editable -->
+            </td>
+        </tr>
+    </template>
+ <template id=summary-row-display-only>
+        <tr>
+            <td class="text-left" data-display="itemLabel">
+                <span data-display="itemText"></span>
+                <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help" data-display="helpIcon">?
+                    <span class="tooltip" data-display="tooltipText"></span>
+                </span>
+            </td>
+            <td class="text-center" data-display="dateValue"></td>
+            <td class="text-right" data-display="amountValue"></td>
+        </tr>
+    </template>
+ 
+ <template id=summary-row-prejudgment-editable-amount>
+        <tr>
+            <td class="text-left" data-display="itemLabel">
+                <span data-display="itemText"></span>
+                <!-- No help icon here when checkbox is unchecked -->
+            </td>
+            <td class="text-center">
+                <!-- No date cell container or help icon when checkbox is unchecked -->
+            </td>
+            <td class="text-right">
+                <input type="text" data-input="prejudgmentAmountValue" class="text-right">
+            </td>
+        </tr>
+    </template>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </div> 
+<img src=data:, style=display:none><iframe name=__privateStripeController5251 frameborder=0 allowtransparency=true scrolling=no role=presentation allow="payment *" aria-hidden=true tabindex=-1 style=border:none!important;margin:0px!important;padding:0px!important;width:1px!important;min-width:100%!important;overflow:hidden!important;display:block!important;visibility:hidden!important;position:fixed!important;height:1px!important;pointer-events:none!important;user-select:none!important sandbox="allow-popups allow-top-navigation-by-user-activation" srcdoc="<!DOCTYPE html> <html lang=en><meta charset=utf-8><meta http-equiv=origin-trial content=&quot;AtD0WrnMwAPI4nWWCvreE+vpgPVz45SO/1fG1IZRNpBsdWZOZN6SKr0ynC11KuzrvT903WrEU+N9Ik/RpiCRTAEAAABbeyJvcmlnaW4iOiJodHRwczovL3N0cmlwZS5jb206NDQzIiwiZmVhdHVyZSI6IlRwY2QiLCJleHBpcnkiOjE3MzUzNDM5OTksImlzU3ViZG9tYWluIjp0cnVlfQ==&quot;><meta name=referrer content=no-referrer><meta http-equiv=content-security-policy content=&quot;default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;&quot;>"></iframe><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><img src=data:, style=display:none><div><template shadowrootmode=open><style class=sf-hidden>.cr-next-popover *{color:var(--Foundation-Neutral-Navy-Dark,#0d3063);font-family:"Rubik",sans-serif;font-size:13px}.cr-next-popover ul,.cr-next-popover ul li{list-style:none}.cr-next-popover{position:absolute;padding:12px 16px 8px 16px;border-radius:4px;background-color:white;transform:translateX(-50%);background:var(--Foundation-Primary-Cobalt-Blue-Light,#e6f1fc);box-shadow:0 4px 4px 0px rgba(0,0,0,0.25);gap:8px;display:flex;flex-direction:column;z-index:20}.cr-next-popover-arrow{width:24px;height:24px;position:absolute;left:50%;top:0;transform:translate(-50%,-50%) rotate(45deg);background:var(--Foundation-Primary-Cobalt-Blue-Light,#e6f1fc)}.cr-next-popover-content{display:inline-flex;flex-direction:column;justify-content:center;gap:4px}.cr-next-popover-content h3{margin:0;color:var(--Foundation-Neutral-Navy-Dark,#0d3063);font-family:"Archivo",sans-serif;font-size:13px!important;font-style:normal;font-weight:500;line-height:16px}.cr-next-popover-content p{margin:0;color:var(--Foundation-Neutral-Navy-Dark,#0d3063);font-family:"Rubik",sans-serif;font-size:13px!important;font-style:normal;font-weight:300;line-height:16px;max-width:247px}.cr-next-popover-controls{display:flex;justify-content:flex-end;align-items:center;height:32px}#crAddExcerptButton{padding:8px 16px;border-radius:4px;background:var(--Foundation-Primary-Cobalt-Blue-Normal,#0075e1);color:white;font-family:"Rubik",sans-serif;font-size:13px;font-style:normal;font-weight:300;line-height:16px;border:none;cursor:pointer}</style></template></div><iframe name=__privateStripeMetricsController5250 frameborder=0 allowtransparency=true scrolling=no role=presentation allow="payment *" aria-hidden=true tabindex=-1 style=border:none!important;margin:0px!important;padding:0px!important;width:1px!important;min-width:100%!important;overflow:hidden!important;display:block!important;visibility:hidden!important;position:fixed!important;height:1px!important;pointer-events:none!important;user-select:none!important sandbox="allow-popups allow-top-navigation-by-user-activation" srcdoc="<!DOCTYPE html> <html><meta charset=utf-8><meta name=referrer content=no-referrer><meta http-equiv=content-security-policy content=&quot;default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;&quot;><body><iframe sandbox=&quot;allow-popups allow-top-navigation-by-user-activation&quot; srcdoc=&quot;<!DOCTYPE html> <html><meta charset=utf-8><title>StripeM-Inner</title><meta name=referrer content=no-referrer><meta http-equiv=content-security-policy content=&amp;quot;default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;&amp;quot;>&quot;></iframe>"></iframe><script data-template-shadow-root>(()=>{document.currentScript.remove();processNode(document);function processNode(node){node.querySelectorAll("template[shadowrootmode]").forEach(element=>{let shadowRoot = element.parentElement.shadowRoot;if (!shadowRoot) {try {shadowRoot=element.parentElement.attachShadow({mode:element.getAttribute("shadowrootmode"),delegatesFocus:element.getAttribute("shadowrootdelegatesfocus")!=null,clonable:element.getAttribute("shadowrootclonable")!=null,serializable:element.getAttribute("shadowrootserializable")!=null});shadowRoot.innerHTML=element.innerHTML;element.remove()} catch (error) {} if (shadowRoot) {processNode(shadowRoot)}}})}})()</script>
