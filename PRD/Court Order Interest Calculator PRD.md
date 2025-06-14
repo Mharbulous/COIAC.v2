@@ -8,6 +8,10 @@ This Product Requirements Document (PRD) outlines the detailed specifications fo
 
 The "Court Order Interest Calculator" is a web-based tool designed to calculate prejudgment and postjudgment interest based on specific dates, principal amounts, and jurisdiction-defined interest rates. It provides a clear, printable summary of calculations, including the ability to add and manage special damages.
 
+### 2.1 Target Users and Goals
+*   **Target Users:** BC lawyers.
+*   **Key Goals:** To quickly calculate interest on court order payments and judgments, including calculating interest on special damages in accordance with the specific rules of the BC Court Order Interest Act.
+
 *   **Application Name:** Court Order Interest Calculator
 *   **Primary Goal:** To accurately calculate and display court order interest, providing a user-friendly interface for inputting relevant financial and date information.
 *   **Target Audience:** Legal professionals, paralegals, and individuals requiring precise interest calculations for court orders.
@@ -99,7 +103,22 @@ The application features a clean, paper-like design, centered on the screen, mim
 
 The application's core functionality revolves around calculating interest based on user inputs and displaying the results.
 
-### 4.1 User Inputs and Controls
+### 4.1 Core Features
+
+Based on the target users and their goals, the following features are essential for the Court Order Interest Calculator:
+
+1.  **Principal Amount Input (Must-Have):** Field to enter the initial judgment or payment amount.
+2.  **Start Date Input (Must-Have):** Field to specify the date from which interest calculation begins.
+3.  **End Date Input (Must-Have):** Field to specify the date until which interest is calculated.
+4.  **Interest Rate Display/Selection (Must-Have):** Display of the applicable BC Court Order interest rates, possibly with an option to select a specific rate if multiple apply over time.
+5.  **Automatic Rate Application (Must-Have):** Automatic application of historical BC Court Order interest rates based on the start and end dates.
+6.  **Special Damages Calculation Toggle (Must-Have):** An option or separate section to specifically calculate interest on special damages, adhering to the BC Court Order Interest Act's rules (e.g., interest from the date of notice).
+7.  **Compound/Simple Interest Option (Must-Have):** Clear indication or selection for simple interest calculation as per the Act.
+8.  **Detailed Breakdown Output (Must-Have):** Display of the total interest calculated, along with a breakdown showing how interest accrues over different periods if rates change.
+9.  **Export/Print Functionality (Must-Have):** Option to export the calculation results (e.g., to PDF or a printable format) for legal documentation.
+10. **Clear Error Handling/Validation (Nice-to-Have):** User-friendly messages for invalid inputs (e.g., end date before start date, non-numeric inputs).
+
+### 4.2 User Inputs and Controls
 
 *   **Checkboxes:**
     *   `Calculate prejudgment interest`: When unchecked, the "Prejudgment Interest Calculations" section and the "Prejudgment Interest" row in the summary table should be hidden.
@@ -113,7 +132,7 @@ The application's core functionality revolves around calculating interest based 
 *   **Add Special Damages Button:** Clicking this button adds a new row to the "Prejudgment Interest Calculations" table, allowing the user to input a date, description, and amount for special damages.
 *   **Delete Special Damages Icon:** Clicking the trash can icon next to a special damages entry removes that row from the table.
 
-### 4.2 Calculation Logic (High-Level)
+### 4.3 Calculation Logic (High-Level)
 
 *   **Interest Calculation:** The application calculates interest based on:
     *   **Principal Amount:** The base amount on which interest is calculated. This changes as special damages are added or removed.
@@ -126,7 +145,7 @@ The application's core functionality revolves around calculating interest based 
     *   `Per Diem`: The daily interest accrual rate based on the current total.
 *   **Dynamic Updates:** All calculations and displayed totals should update dynamically as the user changes inputs (dates, amounts, checkboxes).
 
-### 4.3 Buttons Functionality
+### 4.4 Buttons Functionality
 
 *   **Print Button:** Triggers the browser's print functionality, formatting the page for printing (e.g., removing screen-only elements, adjusting layout for paper size).
 *   **Clear Button:** Resets all input fields to their default or empty states and clears all calculated values and dynamically added rows (e.g., special damages).
