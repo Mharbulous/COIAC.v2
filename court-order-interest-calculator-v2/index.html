@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Court Order Interest Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="two-layer-container">
+        <div class="paper-layer">
+            <div class="page-card">
+                <div class="page-number">Page 1</div>
+            </div>
+            <div class="page-card">
+                <div class="page-number">Page 2</div>
+            </div>
+        </div>
+
+        <div class="ink-layer">
+            <div class="editable-fields-section">
+                <div class="field-row">
+                    <div class="checkbox-container left">
+                        <input type="checkbox" data-input="showPrejudgmentCheckbox" id="showPrejudgmentCheckbox" checked>
+                        <label for="showPrejudgmentCheckbox">Calculate prejudgment interest</label>
+                    </div>
+                    <div class="right-field">
+                        <span class="label">Jurisdiction</span>
+                        <span class="value">
+                            <select data-input="jurisdictionSelect">
+                                <option value="BC" selected>British Columbia</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="checkbox-container left">
+                        <input type="checkbox" data-input="showPostjudgmentCheckbox" id="showPostjudgmentCheckbox" checked>
+                        <label for="showPostjudgmentCheckbox">Show postjudgment interest</label>
+                    </div>
+                    <div class="right-field">
+                        <span class="label">File No.</span>
+                        <span class="value">
+                            <input type="text" data-input="fileNo" value="">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="checkbox-container left">
+                        <input type="checkbox" data-input="showPerDiemCheckbox" id="showPerDiemCheckbox" checked>
+                        <label for="showPerDiemCheckbox">Show per diem</label>
+                    </div>
+                    <div class="right-field">
+                        <span class="label bold">Registry</span>
+                        <span class="value">
+                            <input type="text" data-input="registry" value="Vancouver">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="title-container" style="position:relative;text-align:center;margin-bottom:60px">
+                <h1>BC <i>Court Order Interest Act</i> Calculator</h1>
+                <button id="print-button" class="action-button print" style="position:absolute;top:0;right:0">Print</button>
+                <button id="clear-button" class="action-button clear" style="position:absolute;top:40px;right:0">Clear</button>
+                <div class="demo-watermark" id="main-demo-watermark">DEMONSTRATION</div>
+            </div>
+
+            <div class="section-title">
+                Judgment Date
+                <div class="judgment-date-container" style="display:inline-block;position:relative">
+                    <input type="text" class="custom-date-input" data-input="judgmentDate" placeholder="YYYY-MM-DD" maxlength="10" value="2024-12-11">
+                </div>
+            </div>
+
+            <table class="summary-table">
+                <tbody data-display="summaryTableBody">
+                    <tr>
+                        <td class="text-left" data-display="itemLabel">
+                            <span data-display="itemText">General Damages & Debt</span>
+                        </td>
+                        <td class="text-center"></td>
+                        <td class="text-right">
+                            <input type="text" data-input="amountValue" value="$10,000.00">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" data-display="itemLabel">
+                            <span data-display="itemText">Special Damages</span>
+                            <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help" data-display="helpIcon" style="display:none">?</span>
+                        </td>
+                        <td class="text-center" data-display="dateValue"></td>
+                        <td class="text-right" data-display="amountValue"><span class="currency">$580.30</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" data-display="itemLabel">
+                            <span data-display="itemText">Non-pecuniary Damages</span>
+                            <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help" data-display="helpIcon" style="display:none">?</span>
+                        </td>
+                        <td class="text-center"></td>
+                        <td class="text-right">
+                            <input type="text" data-input="amountValue" value="$0.00">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" data-display="itemLabel">
+                            <span data-display="itemText">Costs & Disbursements</span>
+                            <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help" data-display="helpIcon" style="display:none">?</span>
+                        </td>
+                        <td class="text-center"></td>
+                        <td class="text-right">
+                            <input type="text" data-input="amountValue" value="$0.00">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" data-display="itemLabel">
+                            <span data-display="itemText">Prejudgment Interest</span>
+                        </td>
+                        <td class="text-center date-cell-container">
+                            <div class="date-label-wrapper">
+                                <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help for Prejudgment Interest" data-display="helpIcon">?
+                                    <span class="tooltip" data-display="tooltipText">Cause of Action Date. Prejudgment interest will start to accrue from this date.</span>
+                                </span>
+                                <span data-display="dateLabel" class="date-prefix-label">from</span>
+                                <input type="text" class="custom-date-input" data-input="dateValue" placeholder="YYYY-MM-DD" maxlength="10" value="2019-04-14">
+                            </div>
+                        </td>
+                        <td class="text-right" data-display="amountValue"><span class="currency">$1,561.55</span></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" data-display="itemLabel">
+                            <span data-display="itemText">Postjudgment Interest</span>
+                        </td>
+                        <td class="text-center date-cell-container">
+                            <div class="date-label-wrapper">
+                                <span class="help-icon screen-only" tabindex="0" role="button" aria-label="Help for Postjudgment Interest" data-display="helpIcon">?
+                                    <span class="tooltip" data-display="tooltipText">Accrual Date. Postjudgment interest will accrue up to this date.</span>
+                                </span>
+                                <span data-display="dateLabel" class="date-prefix-label">until</span>
+                                <input type="text" class="custom-date-input" data-input="dateValue" placeholder="YYYY-MM-DD" maxlength="10" value="2025-06-14">
+                            </div>
+                        </td>
+                        <td class="text-right" data-display="amountValue"><span class="currency">$344.09</span></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="2" class="label text-right bold" data-display="summaryTotalLabel">TOTAL AS OF 2025-06-14</td>
+                        <td class="amount text-right bold" data-display="summaryTotal"><span class="currency">$12,485.94</span></td>
+                    </tr>
+                    <tr class="per-diem-row">
+                        <td colspan="2" class="label text-right italic">Per Diem</td>
+                        <td class="amount text-right italic" data-display="summaryPerDiem"><span class="currency">$2.02</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div>
+                <div class="section-title breakable">Prejudgment Interest Calculations</div>
+                <div data-display="prejudgmentSection">
+                    <table class="interest-table" id="prejudgmentTable">
+                        <thead>
+                            <tr><th>Date</th><th>Description</th><th>Rate</th><th>Principal</th><th>Interest</th></tr>
+                        </thead>
+                        <tbody data-display="prejudgmentTableBody">
+                            <tr>
+                                <td class="text-left">2019-04-14</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>79 days</span>
+                                        <button class="add-special-damages-btn" data-date="2019-04-14" data-amount="49.78082191780822">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">2.30%</td>
+                                <td class="text-right"><span class="currency">$10,000.00</span></td>
+                                <td class="text-right"><span class="currency">$49.78</span></td>
+                            </tr>
+                            <tr class="special-damages-row breakable">
+                                <td class="text-left"><input type="text" class="special-damages-date custom-date-input" data-type="special-damages-date" placeholder="YYYY-MM-DD" maxlength="10" value="2019-04-30"></td>
+                                <td class="text-left"><input type="text" class="special-damages-description" placeholder="Describe special damages" data-type="special-damages-description" value="Ambulance fees"></td>
+                                <td class="text-center"></td>
+                                <td class="text-right"><input type="text" class="special-damages-amount" data-type="special-damages-amount" value="$320.00"></td>
+                                <td class="text-right"><span class="delete-icon" title="Delete special damages">✕</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2019-07-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>185 days</span>
+                                        <button class="add-special-damages-btn" data-date="2019-07-01" data-amount="81.07561643835616">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">1.55%</td>
+                                <td class="text-right"><span class="currency">$10,320.00</span></td>
+                                <td class="text-right"><span class="currency">$81.08</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2020-01-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>183 days</span>
+                                        <button class="add-special-damages-btn" data-date="2020-01-01" data-amount="121.26">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">2.35%</td>
+                                <td class="text-right"><span class="currency">$10,320.00</span></td>
+                                <td class="text-right"><span class="currency">$121.26</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2020-07-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>185 days</span>
+                                        <button class="add-special-damages-btn" data-date="2020-07-01" data-amount="41.731147540983606">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">0.80%</td>
+                                <td class="text-right"><span class="currency">$10,320.00</span></td>
+                                <td class="text-right"><span class="currency">$41.73</span></td>
+                            </tr>
+                            <tr class="special-damages-row breakable">
+                                <td class="text-left"><input type="text" class="special-damages-date custom-date-input" data-type="special-damages-date" placeholder="YYYY-MM-DD" maxlength="10" value="2020-07-03"></td>
+                                <td class="text-left"><input type="text" class="special-damages-description" placeholder="Describe special damages" data-type="special-damages-description" value="Physiotherapy - 1 hour"></td>
+                                <td class="text-center"></td>
+                                <td class="text-right"><input type="text" class="special-damages-amount" data-type="special-damages-amount" value="$220.50"></td>
+                                <td class="text-right"><span class="delete-icon" title="Delete special damages">✕</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2021-01-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>182 days</span>
+                                        <button class="add-special-damages-btn" data-date="2021-01-01" data-amount="26.279054794520547">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">0.50%</td>
+                                <td class="text-right"><span class="currency">$10,540.50</span></td>
+                                <td class="text-right"><span class="currency">$26.28</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2021-07-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>185 days</span>
+                                        <button class="add-special-damages-btn" data-date="2021-07-01" data-amount="42.739561643835614">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">0.80%</td>
+                                <td class="text-right"><span class="currency">$10,540.50</span></td>
+                                <td class="text-right"><span class="currency">$42.74</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2022-01-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>182 days</span>
+                                        <button class="add-special-damages-btn" data-date="2022-01-01" data-amount="36.79067671232876">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">0.70%</td>
+                                <td class="text-right"><span class="currency">$10,540.50</span></td>
+                                <td class="text-right"><span class="currency">$36.79</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2022-07-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>185 days</span>
+                                        <button class="add-special-damages-btn" data-date="2022-07-01" data-amount="109.52012671232875">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">2.05%</td>
+                                <td class="text-right"><span class="currency">$10,540.50</span></td>
+                                <td class="text-right"><span class="currency">$109.52</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2023-01-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>182 days</span>
+                                        <button class="add-special-damages-btn" data-date="2023-01-01" data-amount="254.90683150684927">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">4.85%</td>
+                                <td class="text-right"><span class="currency">$10,540.50</span></td>
+                                <td class="text-right"><span class="currency">$254.91</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2023-07-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>185 days</span>
+                                        <button class="add-special-damages-btn" data-date="2023-07-01" data-amount="288.4920410958904">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">5.40%</td>
+                                <td class="text-right"><span class="currency">$10,540.50</span></td>
+                                <td class="text-right"><span class="currency">$288.49</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2024-01-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>183 days</span>
+                                        <button class="add-special-damages-btn" data-date="2024-01-01" data-amount="252.972">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">4.80%</td>
+                                <td class="text-right"><span class="currency">$10,540.50</span></td>
+                                <td class="text-right"><span class="currency">$252.97</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2024-07-01</td>
+                                <td class="text-left">
+                                    <div class="description-container">
+                                        <span>164 days</span>
+                                        <button class="add-special-damages-btn" data-date="2024-07-01" data-amount="255.04554098360657">add special damages</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">5.40%</td>
+                                <td class="text-right"><span class="currency">$10,540.50</span></td>
+                                <td class="text-right"><span class="currency">$255.05</span></td>
+                            </tr>
+                            <tr class="special-damages-row breakable">
+                                <td class="text-left"><input type="text" class="special-damages-date custom-date-input" data-type="special-damages-date" placeholder="YYYY-MM-DD" maxlength="10" value="2024-07-02">
+                                    <div class="end-date text-left">2024-12-11</div>
+                                </td>
+                                <td class="text-left"><input type="text" class="special-damages-description" placeholder="Describe special damages" data-type="special-damages-description" value="Oxycodone">
+                                    <div class="interest-calculation-details days-only"><span class="days-count">163 days</span></div>
+                                </td>
+                                <td class="text-center">&nbsp;
+                                    <div class="interest-calculation-details">5.40%</div>
+                                </td>
+                                <td class="text-right"><input type="text" class="special-damages-amount" data-type="special-damages-amount" value="$39.80"></td>
+                                <td class="text-right">
+                                    <div style="display:flex;justify-content:flex-end;align-items:center"><span class="delete-icon" title="Delete special damages">✕</span></div>
+                                    <div class="interest-calculation-details"><span><span class="currency">$0.96</span></span></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="total">
+                                <td data-display="prejudgmentDateCell" class="text-left" style="font-weight:normal">2024-12-11</td>
+                                <td data-display="prejudgmentTotalDays" class="text-left" style="font-weight:normal">Total: 2080 days</td>
+                                <td></td>
+                                <td class="text-right" data-display="prejudgmentPrincipalTotal"><span class="currency">$10,580.30</span></td>
+                                <td data-display="prejudgmentInterestTotal" class="text-right"><span class="currency">$1,561.55</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <div class="page-break-spacer" style="height:210.145px"></div>
+                <div class="section-title breakable" id="postjudgmentTitle">Postjudgment Interest Calculations</div>
+                <div data-display="postjudgmentSection">
+                    <table class="interest-table" id="postjudgmentTable">
+                        <thead>
+                            <tr><th>Date</th><th>Description</th><th>Rate</th><th>Principal</th><th>Interest</th></tr>
+                        </thead>
+                        <tbody data-display="postjudgmentTableBody">
+                            <tr>
+                                <td class="text-left">2024-12-11</td>
+                                <td class="text-left">
+                                    <div class="description-container"><span>22 days</span></div>
+                                </td>
+                                <td class="text-center">7.30%</td>
+                                <td class="text-right"><span class="currency">$10,580.30</span></td>
+                                <td class="text-right"><span class="currency">$46.43</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2025-01-01</td>
+                                <td class="text-left">
+                                    <div class="description-container"><span>165 days</span></div>
+                                </td>
+                                <td class="text-center">5.90%</td>
+                                <td class="text-right"><span class="currency">$10,580.30</span></td>
+                                <td class="text-right"><span class="currency">$297.67</span></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="total">
+                                <td data-display="postjudgmentDateCell" class="text-left" style="font-weight:normal">2025-06-14</td>
+                                <td data-display="postjudgmentTotalDays" class="text-left" style="font-weight:normal">Total: 187 days</td>
+                                <td></td>
+                                <td class="text-right" data-display="postjudgmentPrincipalTotal"><span class="currency">$10,580.30</span></td>
+                                <td data-display="postjudgmentInterestTotal" class="text-right"><span class="currency">$344.09</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="console-layer">
+            <div id="demo-mode-banner" class="demo-banner" style="position:fixed;top:-100px">
+                <div class="close-icon" id="close-demo-banner">✕</div>
+                <span>CAUTION: Demo uses mock interest rates</span>
+                <button id="get-accurate-results" class="payment-button">Buy Now - $24.99</button>
+            </div>
+            <div id="demo-modal" class="demo-modal" style="display:none"></div>
+            <button id="action-button" class="action-button buy-now">Buy Now - $24.99<span class="shimmer-overlay"></span></button>
+        </div>
+    </div>
+</body>
+</html>
