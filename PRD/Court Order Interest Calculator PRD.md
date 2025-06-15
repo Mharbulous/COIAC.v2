@@ -107,10 +107,10 @@ The application's core functionality revolves around calculating interest based 
 
 Based on the target users and their goals, the following features are essential for the Court Order Interest Calculator:
 
-1.  **Principal Amount Input (Must-Have):** Field to enter the initial judgment or payment amount.
-2.  **Start Date Input (Must-Have):** Field to specify the date from which interest calculation begins.
-3.  **End Date Input (Must-Have):** Field to specify the date until which interest is calculated.
-4.  **Interest Rate Display/Selection (Must-Have):** Display of the applicable BC Court Order interest rates, possibly with an option to select a specific rate if multiple apply over time.
+1.  **Principal Amount Input (Must-Have):** Field to enter the initial judgment or payment amount.  (General Damages & Debt)
+2.  **Start Date Input (Must-Have):** Field to specify the date from which interest calculation begins. (Prejudgment Interest Date)
+3.  **End Date Input (Must-Have):** Field to specify the date until which interest is calculated. (Postjudgment Interest Date)
+4.  **Judgment Date (Must-Have):** Field to specify that date to switch from prejudgment interest to postjudgment interest.  (Judgment Date)
 5.  **Automatic Rate Application (Must-Have):** Automatic application of historical BC Court Order interest rates based on the start and end dates.
 6.  **Special Damages Calculation Toggle (Must-Have):** An option or separate section to specifically calculate interest on special damages, adhering to the BC Court Order Interest Act's rules (e.g., interest from the date of notice).
 7.  **Compound/Simple Interest Option (Must-Have):** Clear indication or selection for simple interest calculation as per the Act.
@@ -127,7 +127,7 @@ Based on the target users and their goals, the following features are essential 
 17. **Audit Trail/Calculation Log (Nice-to-Have):** A feature that logs all inputs and changes made during a calculation session, providing an audit trail for verification.
 18. **Clear Calculation Methodology Explanation (Nice-to-Have):** A help section or tooltip explaining *how* the interest is calculated according to the BC Court Order Interest Act, especially for special damages and rate changes.
 19. **Responsive Design for Desktop (Nice-to-Have):** Ensuring the application gracefully adapts to various desktop screen sizes (e.g., different monitor resolutions) for professional use.
-
+20.  **Interest Rate Display/Selection (Must-Have):** Display of the applicable BC Court Order interest rates, possibly with an option to select a specific rate if multiple apply over time.
 
 ### 4.2 User Inputs and Controls
 
