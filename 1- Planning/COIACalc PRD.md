@@ -1,180 +1,217 @@
-# Product Requirements Document: Court Order Interest Calculator
+# Product Requirements Document (PRD)
+
+## Court Order Interest Calculator v2.0
+
+**Version:** 2.0.1
+**Last Updated:** June 15, 2025
 
 ## 1. Introduction
 
-This Product Requirements Document (PRD) outlines the detailed specifications for recreating the "Court Order Interest Calculator" application. The goal is to replicate the existing application's user interface and functionality precisely, while implementing a new, improved architecture and comprehensive documentation to facilitate future enhancements and maintainability. This document serves as a blueprint for development, ensuring all visual and interactive aspects of the original application are captured.
+### 1.1. Purpose
 
-## 2. Application Overview
+This document provides the detailed requirements for the development of the "Court Order Interest Calculator" v2.0. The primary objective is to replicate the exact user interface (UI) and core functionality of the original application while implementing a new, robust, and maintainable backend architecture. This PRD serves as the single source of truth for all project stakeholders, including developers, designers, and project managers.
 
-The "Court Order Interest Calculator" is a web-based tool designed to calculate prejudgment and postjudgment interest based on specific dates, principal amounts, and jurisdiction-defined interest rates. It provides a clear, printable summary of calculations, including the ability to add and manage special damages.
+### 1.2. Scope
 
-### 2.1 Target Users and Goals
-*   **Target Users:** BC lawyers.
-*   **Key Goals:** To quickly calculate interest on court order payments and judgments, including calculating interest on special damages in accordance with the specific rules of the BC Court Order Interest Act.
+The scope of this project is to deliver a web-based application that accurately calculates prejudgment and postjudgment interest for the jurisdictions of **British Columbia and Ontario**. The project includes the development of the frontend UI, a decoupled backend calculation engine, and the necessary data handling to support the application's features.
 
-*   **Application Name:** Court Order Interest Calculator
-*   **Primary Goal:** To accurately calculate and display court order interest, providing a user-friendly interface for inputting relevant financial and date information.
-*   **Target Audience:** Legal professionals, paralegals, and individuals requiring precise interest calculations for court orders.
+### 1.3. Target Audience
 
-## 3. User Interface (UI) and Appearance
+The primary target audience is legal professionals, paralegals, and their staff in British Columbia and Ontario who require precise interest calculations for court-ordered judgments and settlements.
 
-The application features a clean, paper-like design, centered on the screen, mimicking a physical document.
+## 2. Overall Vision & Goals
 
-### 3.1 General Layout
+### 2.1. Product Vision
 
-*   **Page Background:** Light gray (`--page-background-color: #e0e0e0`).
-*   **Content Area:** Centered on the screen, resembling a white paper sheet (`--paper-background-color: white`), with a subtle shadow (`box-shadow: 0 0 10px rgba(0,0,0,0.1)`).
-*   **Dimensions:** The main content area is fixed at `9.27in` width and `12in` height per page, with `0.75in` padding. The application supports multiple pages, indicated by "Page 1", "Page 2", etc., at the bottom center of each page.
-*   **Font Family:** Primarily Arial, sans-serif (`--font-family: Arial, sans-serif`).
-*   **Base Font Size:** 10pt (`--base-font-size: 10pt`).
-*   **Title Font Size:** 13pt (`--title-font-size: 13pt`).
-*   **Text Color:** Black (`--text-color: black`).
-*   **Spacing:** A base spacing unit of `4pt` is used for consistent layout.
+To be the most accurate, user-friendly, and reliable tool for legal professionals in British Columbia and Ontario to calculate interest on court-ordered judgments, ensuring compliance with provincial regulations.
 
-### 3.2 Header Section
+### 2.2. Key Business Goals
 
-*   **Checkboxes (Left-aligned):**
-    *   "Calculate prejudgment interest" (checked by default)
-    *   "Show postjudgment interest" (checked by default)
-    *   "Show per diem" (checked by default)
-    *   **Checkbox Styling:** Custom styled checkboxes with a blue border (`#3a7bc8`), white background, and a checkmark (`✓`) in blue (`#4a90e2`) when checked.
-*   **Input Fields (Right-aligned):**
-    *   **Jurisdiction:** Dropdown with "British Columbia" selected by default.
-        *   Label: "Jurisdiction" (normal weight).
-        *   Value: Right-aligned dropdown.
-    *   **File No.:** Text input field.
-        *   Label: "File No." (normal weight).
-        *   Value: Right-aligned text input.
-    *   **Registry:** Text input field, default value "Vancouver".
-        *   Label: "Registry" (bold).
-        *   Value: Right-aligned text input.
-*   **Input Field Styling:** Inputs have a light blue background (`--input-background-color: #e0f2f7`), no border, and padding. On hover, they show a 1px solid blue outline (`#3a7bc8`). On focus, they show a 1px solid gray outline (`--focus-outline-color: #a0a0a0`).
-*   **Title:** "BC *Court Order Interest Act* Calculator" (bold, italicized "Court Order Interest Act"). Centered.
-*   **Action Buttons (Right of Title):**
-    *   **Print Button:** Blue background (`#4a90e2`), white text, "Print" label. Positioned at top-right of title container.
-    *   **Clear Button:** Red background (`#e74c3c`), white text, "Clear" label. Positioned below Print button.
-    *   **Button Styling:** Rounded corners, bold text, hover effects (darker background), active effects (slight scale down).
-*   **Demo Watermark:** "DEMONSTRATION" text, large, semi-transparent red, rotated, centered over the main content area.
+* **Replicate Functionality:** Achieve 100% parity with the original application's features and calculation outputs, while also adding some additional features and functionality to be able to handle calculations for Ontario, and to calculate the effect of partial payments.
+* **Improve Architecture:** Build a new backend that is modular, testable, and easy to maintain, avoiding the architectural flaws of the original.
+* **Enhance Documentation:** Create comprehensive documentation for both the code and the system to facilitate future development and onboarding.
 
-### 3.3 Summary Table
+## 3. Functional Requirements
 
-*   **Structure:** A table with three columns: Item Label (left-aligned), Date (center-aligned, often empty), and Amount (right-aligned).
-*   **Rows:**
-    *   "General Damages & Debt": Editable amount input (e.g., "$10,000.00").
-    *   "Special Damages": Display-only amount (e.g., "$580.30"). Includes a hidden help icon.
-    *   "Non-pecuniary Damages": Editable amount input (e.g., "$0.00").
-    *   "Costs & Disbursements": Editable amount input (e.g., "$0.00").
-    *   "Prejudgment Interest": Display-only amount (e.g., "$1,561.55"). Includes a date input labeled "from" (e.g., "2019-04-14") and a help icon with tooltip "Cause of Action Date. Prejudgment interest will start to accrue from this date."
-    *   "Postjudgment Interest": Display-only amount (e.g., "$344.09"). Includes a date input labeled "until" (e.g., "2025-06-14") and a help icon with tooltip "Accrual Date. Postjudgment interest will accrue up to this date."
-*   **Footer:**
-    *   "TOTAL AS OF [Date]": Bold, right-aligned, spans two columns. Total amount (bold, right-aligned).
-    *   "Per Diem": Italic, right-aligned, spans two columns. Per diem amount (italic, right-aligned).
-*   **Judgment Date:** A bold date input field "Judgment Date" (e.g., "2024-12-11") positioned above the summary table.
+This section details the specific features and functionalities of the application, framed as user stories.
 
-### 3.4 Interest Calculation Tables (Prejudgment and Postjudgment)
+### 3.1. Core Calculation
+* **UC-1: Prejudgment Interest Calculation:** As a user, I want the system to calculate prejudgment interest on a principal amount from a specified start date **up to, but not including, the date of judgment**, so that I can determine the interest owed before the judgment is finalized.
+* **UC-2: Postjudgment Interest Calculation:** As a user, I want the system to calculate postjudgment interest **starting on the date of judgment** up to a specified end date, so that I can determine the ongoing interest owed.
+* **UC-3: Special Damages:** As a user, I want to add multiple special damage entries with specific dates and amounts, so that the system can accurately calculate interest on these amounts as they are incorporated into the principal over time.
+* **UC-4: Per Diem Calculation:** As a user, I want the system to calculate and display the per diem (daily) interest amount based on the total outstanding balance, so I know the daily cost of a delayed payment.
 
-*   **Structure:** Tables with five columns: Date, Description, Rate, Principal, and Interest.
-*   **Header Styling:** Light gray background (`--table-header-background-color: #f0f0f0`), bold, centered text.
-*   **Cell Styling:** All cells have a 1px solid black border (`--border-color: black`).
-*   **Prejudgment Table (`#prejudgmentTable`):**
-    *   **Date Column:** Left-aligned.
-    *   **Description Column:** Left-aligned. Contains a "Description" text or a dynamic text (e.g., "79 days") and an "add special damages" button.
-    *   **Rate Column:** Center-aligned, displays interest rate (e.g., "2.30%").
-    *   **Principal Column:** Right-aligned, displays principal amount (e.g., "$10,000.00").
-    *   **Interest Column:** Right-aligned, displays calculated interest (e.g., "$49.78").
-    *   **Special Damages Rows:** Inserted dynamically.
-        *   Date input (`custom-date-input`).
-        *   Description input (`special-damages-description`).
-        *   Amount input (`special-damages-amount`).
-        *   Delete icon (red trash can icon) for removing the row.
-        *   These rows can also display interest calculation details (days, rate, interest) for the special damage amount.
-    *   **Footer:** Displays "Total: [X] days", "Principal Total", and "Interest Total" for the prejudgment period.
-*   **Postjudgment Table (`#postjudgmentTable`):**
-    *   Similar structure to the prejudgment table.
-    *   **Footer:** Displays "Total: [X] days", "Principal Total", and "Interest Total" for the postjudgment period.
+### 3.2. User Interface & Interaction
+* **UI-1: Main Input Screen:** As a user, I want to see a clean, paper-like interface where I can input all necessary case information, including file number, registry, principal amounts, and key dates.
+* **UI-2: Dynamic Calculation Updates:** As a user, I want all calculations and totals on the screen to update automatically and instantly whenever I change an input value (e.g., date, amount).
+* **UI-3: Add/Remove Special Damages:** As a user, I want to dynamically add and remove special damage rows in the calculation table, with the interface smoothly updating to reflect these changes.
+* **UI-4: Toggle Visibility of Sections:** As a user, I want to use checkboxes to show or hide the Prejudgment, Postjudgment, and Per Diem sections, so I can customize the final report for my needs.
+* **UI-5: Clear Form:** As a user, I want a "Clear" button that resets all fields and calculations to their default state.
+* **UI-6: Print Functionality:** As a user, I want a "Print" button that invokes the browser's standard print functionality (equivalent to pressing `Ctrl+P` or `Cmd+P`), generating a clean, printable version of the calculation report formatted for standard paper.
 
-### 3.5 Other UI Elements
+### 3.3. Demo Mode / Paywall
+* **DM-1: Demo Banner:** As a user in demo mode, when I print the calculations using the print button or my browser, I want the print preview and the printed hardcopy to have a banner explaining that these calculations use mock interest rate, and that to do calculations using official interest rates the user will need to pay the licensing fee.
+* **DM-2: Watermark:** As a user in demo mode, I want to see a watermark "Mock Interest Rates".
 
-*   **Help Icons:** Small blue circles with a white question mark (`?`). On hover, they display a tooltip with additional information.
-*   **"Buy Now" Button:** Large green button (`#4CAF50`) with white text, positioned centrally at the top of the screen (initially hidden or overlaid). It has a subtle breathing shadow and shimmer animation.
-*   **Demo Banner:** A yellow banner (`#ffeb3b`) at the top of the screen, stating "CAUTION: Demo uses mock interest rates", with a "Buy Now - $24.99" button and a close icon. This banner slides down from the top.
+## 4. System & Technical Requirements
 
-## 4. Functionality
+### 4.1. Calculation Engine Specification
+The core of the application is a calculation engine that must be implemented as a pure, stateless module, decoupled from the UI. This decoupling is a critical architectural requirement. Because the legal rules for calculating court order interest differ significantly between jurisdictions (e.g., British Columbia vs. Ontario), this approach allows the single, consistent user interface to call the correct jurisdiction-specific calculation logic. When a user selects a jurisdiction from the dropdown menu, the application will invoke the corresponding engine to process the calculation according to that province's laws without needing to change the UI.
 
-The application's core functionality revolves around calculating interest based on user inputs and displaying the results.
+#### 4.1.1. Formulas
+* **Simple Interest:** All interest is calculated using the simple interest formula:
+    `Interest = Principal * (AnnualRate / 100) * (DaysInPeriod / DaysInYear)`
+* **Days in Year:** The engine must correctly use `366` for a leap year and `365` for a common year.
+* **Per Diem:** The per diem interest is calculated as:
+    `PerDiem = TotalOwing * (PostjudgmentRateForDate / 100) / DaysInYear`
 
-### 4.1 Core Features
+#### 4.1.2. Business Rules & Logic
+* **Date Normalization:** All date inputs must be normalized to midnight UTC (`00:00:00.000Z`) before being used in any calculation to ensure consistency.
+* **Date Period Calculation:** The number of days in a period is calculated by counting every day from the start date up to, but not including, the end date. For example, the period from Jan 1 to Jan 3 includes Jan 1 and Jan 2, resulting in 2 days. If the start and end dates are the same (e.g., Jan 1 to Jan 1), the number of days is 0.
+* **Jurisdiction-Specific Logic:** Calculation rules, particularly for interest period segmentation and special damages, vary by jurisdiction and must be applied accordingly.
+* **Judgment Date Boundary:** The date of judgment marks the end of the prejudgment period and the beginning of the postjudgment period. **Interest on the date of judgment itself is calculated at the post-judgment rate.**
+* **BC Interest Period Segmentation:** For British Columbia, the calculation period for general damages must be segmented based on changes in the official interest rate. Interest is calculated for each segment and then summed.
+* **BC Special Damages Calculation (Per BC COIA s. 1(2), 1(3)):** For British Columbia, interest on special damages is calculated separately from general damages. The calculation follows a 6-month interval logic based on the "Prejudgment Start Date" (cause of action date).
+    * **Grouping:** Special damages are grouped into 6-month periods starting from the Prejudgment Start Date.
+    * **Completed 6-Month Periods:** For each full 6-month period, the *total sum* of all special damages incurred within that period is calculated. Interest on this batched sum runs from the day *after* the end of that 6-month period up to the Judgment Date.
+    * **Final (Incomplete) Period:** For any special damages that fall into the final, incomplete 6-month period ending on the Judgment Date, interest is calculated on *each damage amount individually* from its specific date of incurrence up to the Judgment Date.
+* **Ontario Interest Rate Application:** For Ontario, the prejudgment interest rate is **fixed** for the entire period. This rate is determined by the official rate for the quarter in which the action was commenced (i.e., the 'Prejudgment Start Date'). The postjudgment interest rate is the same as this fixed prejudgment rate.
 
-Based on the target users and their goals, the following features are essential for the Court Order Interest Calculator:
+### 4.2. Data Requirements
 
-1.  **Principal Amount Input (Must-Have):** Field to enter the initial judgment or payment amount.  (General Damages & Debt)
-2.  **Start Date Input (Must-Have):** Field to specify the date from which interest calculation begins. (Prejudgment Interest Date)
-3.  **End Date Input (Must-Have):** Field to specify the date until which interest is calculated. (Postjudgment Interest Date)
-4.  **Judgment Date (Must-Have):** Field to specify that date to switch from prejudgment interest to postjudgment interest.  (Judgment Date)
-5.  **Automatic Rate Application (Must-Have):** Automatic application of historical BC Court Order interest rates based on the start and end dates.
-6.  **Special Damages Calculation Toggle (Must-Have):** An option or separate section to specifically calculate interest on special damages, adhering to the BC Court Order Interest Act's rules (e.g., interest from the date of notice).
-7.  **Compound/Simple Interest Option (Must-Have):** Clear indication or selection for simple interest calculation as per the Act.
-8.  **Detailed Breakdown Output (Must-Have):** Display of the total interest calculated, along with a breakdown showing how interest accrues over different periods if rates change.
-9.  **Export/Print Functionality (Must-Have):** Option to export the calculation results (e.g., to PDF or a printable format) for legal documentation.
-10. **Clear Error Handling/Validation (Nice-to-Have):** User-friendly messages for invalid inputs (e.g., end date before start date, non-numeric inputs).
-11. **Historical Interest Rate Lookup (Must-Have):** A dedicated section or tool within the application to look up historical BC Court Order interest rates for specific periods, independent of a calculation.
-12. **Multiple Special Damages Entries (Must-Have):** Ability to add and manage multiple special damages entries within a single calculation, each with its own date and amount.
-13. **Payment/Credit Tracking (Must-Have):** Functionality to input and account for partial payments or credits made against the principal amount during the interest accrual period, adjusting the principal for subsequent interest calculations.
-14. **Print Preview (Must-Have):** A dedicated print preview mode before actual printing, allowing users to verify the layout and content.
-    *Note: This feature is inherently supported by the application's skeuomorphic interface, which is designed to resemble standard US letterhead paper, and its print media attributes are calibrated to match the browser's built-in print preview functionality.*
-15. **Customizable Date Formats (Nice-to-Have):** Option for users to select their preferred date input/output format (e.g., MM/DD/YYYY, DD-MM-YYYY).
-16. **Case Management/Saving Calculations (Nice-to-Have):** Ability for lawyers to save, load, and manage multiple calculation cases within the application (e.g., using local storage or simple file export/import).
-17. **Audit Trail/Calculation Log (Nice-to-Have):** A feature that logs all inputs and changes made during a calculation session, providing an audit trail for verification.
-18. **Clear Calculation Methodology Explanation (Nice-to-Have):** A help section or tooltip explaining *how* the interest is calculated according to the BC Court Order Interest Act, especially for special damages and rate changes.
-19. **Responsive Design for Desktop (Nice-to-Have):** Ensuring the application gracefully adapts to various desktop screen sizes (e.g., different monitor resolutions) for professional use.
-20.  **Interest Rate Display/Selection (Must-Have):** Display of the applicable BC Court Order interest rates, possibly with an option to select a specific rate if multiple apply over time.
+#### 4.2.1. Jurisdictional Interest Rate Data
+To ensure that interest rates are always current and can be updated without redeploying the application, all rate data will be stored in a **Firebase Firestore database**.
 
-### 4.2 User Inputs and Controls
+* **Data Source:** The web application will fetch the interest rate table from Firestore upon initialization.
+* **Data Unavailability:** If the application cannot fetch rate data from Firestore (e.g., due to network issues or service outage), it must **not** proceed with calculations. It should display a clear error message to the user indicating that the service is temporarily unavailable and disable calculation functionality until a connection can be re-established.
+* **Firestore Data Structure:** The data will be stored in a collection named `interestRates`. Each document will represent a jurisdiction (e.g., `BC-COIA`, `ON-CJA`) and contain metadata.
+    * **Document:** `interestRates/[JURISDICTION_ID]` (e.g., `interestRates/BC-COIA`)
+    * **Fields:**
+        * `sourceUrl`: (String) The URL where the data is scraped from.
+        * `lastUpdated`: (Timestamp) The last time the data was successfully updated.
+        * `rates`: (Array) The array of rate objects.
 
-*   **Checkboxes:**
-    *   `Calculate prejudgment interest`: When unchecked, the "Prejudgment Interest Calculations" section and the "Prejudgment Interest" row in the summary table should be hidden.
-    *   `Show postjudgment interest`: When unchecked, the "Postjudgment Interest Calculations" section and the "Postjudgment Interest" row in the summary table should be hidden.
-    *   `Show per diem`: When unchecked, the "Per Diem" row in the summary table should be hidden.
-*   **Text Inputs:**
-    *   `File No.`, `Registry`, `General Damages & Debt`, `Non-pecuniary Damages`, `Costs & Disbursements`: Allow free-form text or numerical input. Currency inputs should automatically format to currency (e.g., "$10,000.00").
-*   **Date Inputs:**
-    *   `Judgment Date`, `Prejudgment Interest (from)`, `Postjudgment Interest (until)`, `Special Damages Date`: Should use a date picker (Flatpickr was used in the original, but the specific library is not a requirement for the PRD, just the functionality). Input format YYYY-MM-DD.
-*   **Jurisdiction Select:** A dropdown to select the jurisdiction. Currently, only "British Columbia" is an option. Future versions may include more.
-*   **Add Special Damages Button:** Clicking this button adds a new row to the "Prejudgment Interest Calculations" table, allowing the user to input a date, description, and amount for special damages.
-*   **Delete Special Damages Icon:** Clicking the trash can icon next to a special damages entry removes that row from the table.
+##### 4.2.1.1. British Columbia (BC)
+The `BC-COIA` document will store an array of rate periods.
 
-### 4.3 Calculation Logic (High-Level)
+* **Array Element Structure:**
+    ```json
+    {
+      "start": "YYYY-MM-DD",
+      "end": "YYYY-MM-DD",
+      "prejudgment": 5.40,
+      "postjudgment": 7.30
+    }
+    ```
 
-*   **Interest Calculation:** The application calculates interest based on:
-    *   **Principal Amount:** The base amount on which interest is calculated. This changes as special damages are added or removed.
-    *   **Interest Rate:** Varies by period, as shown in the tables. The rates are determined by the selected jurisdiction and the specific date ranges.
-    *   **Number of Days:** The duration for which interest is calculated for each period.
-*   **Prejudgment Interest:** Calculated from the "Prejudgment Interest (from)" date up to the "Judgment Date". Special damages are incorporated into the principal from their respective dates.
-*   **Postjudgment Interest:** Calculated from the "Judgment Date" up to the "Postjudgment Interest (until)" date.
-*   **Totals:**
-    *   `TOTAL AS OF [Date]`: Sum of General Damages & Debt, Special Damages, Non-pecuniary Damages, Costs & Disbursements, Prejudgment Interest, and Postjudgment Interest.
-    *   `Per Diem`: The daily interest accrual rate based on the current total.
-*   **Dynamic Updates:** All calculations and displayed totals should update dynamically as the user changes inputs (dates, amounts, checkboxes).
+##### 4.2.1.2. Ontario (ON)
+The `ON-CJA` document will store an array of quarterly rates.
 
-### 4.4 Buttons Functionality
+* **Rate Application Rule:** The applicable rate for both prejudgment and postjudgment interest is determined by the rate in effect during the quarter in which the action was commenced (the "Prejudgment Start Date").
+* **Array Element Structure:**
+    ```json
+    {
+      "year": 2025,
+      "quarter": "Q3",
+      "start": "2025-07-01",
+      "end": "2025-09-30",
+      "rate": 5.0
+    }
+    ```
+* **Historical Data Sample:**
+    | Year | Quarter | Prejudgment Rate (%) |
+    | :--- | :--- | :--- |
+    | 2025 | Q3 | 5.0 |
+    | 2025 | Q2 | 5.0 |
+    | 2025 | Q1 | 5.0 |
+    | 2024 | Q4 | 5.0 |
+    | 2024 | Q3 | 5.0 |
+    | 2024 | Q2 | 5.0 |
+    | 2024 | Q1 | 5.0 |
+    | 2023 | Q4 | 5.0 |
+    | ...  | ... | ...  |
 
-*   **Print Button:** Triggers the browser's print functionality, formatting the page for printing (e.g., removing screen-only elements, adjusting layout for paper size).
-*   **Clear Button:** Resets all input fields to their default or empty states and clears all calculated values and dynamically added rows (e.g., special damages).
-*   **Buy Now Button (Demo Mode):** This button is part of the demo experience. Its exact backend functionality is out of scope for this PRD, but on the frontend, it should visually indicate a call to action for purchasing the full version.
+#### 4.2.2. Automated Rate Update Mechanism
+A mechanism will be created to automatically keep the Firestore data current for all supported jurisdictions.
 
-## 5. Data Handling (Frontend Perspective)
+* **Automation Tool:** A **serverless function** (e.g., Google Cloud Function) will be developed and deployed.
+* **Trigger Schedule:** The function will be configured to run on a schedule (e.g., quarterly for Ontario, semi-annually for BC).
+* **Scraping Task:** The function's sole responsibility is to:
+    1.  Access the official court/government websites for each jurisdiction:
+        * **BC:** `https://www.bccourts.ca/supreme_court/about_the_supreme_court/Court_Order_Interest_Rates.aspx`
+        * **ON:** `https://www.ontario.ca/page/prejudgment-and-postjudgment-interest-rates`
+    2.  Scrape the latest interest rate data from the respective HTML tables.
+    3.  Connect to the Firestore database.
+    4.  Update the `rates` array in the corresponding jurisdiction document (`BC-COIA`, `ON-CJA`).
+    5.  Include robust error handling and logging to notify administrators if the scraping or database update fails.
 
-*   **Input Validation:** Dates should be validated for correct YYYY-MM-DD format. Amounts should be validated as numerical and formatted as currency.
-*   **Currency Formatting:** All monetary values should be displayed with a currency symbol (e.g., "$") and two decimal places, with thousands separators. Negative currency values should be displayed in red.
-*   **State Management:** The application's state (input values, calculated results, visibility of sections) must be managed efficiently to ensure dynamic updates and accurate calculations.
+### 4.3. UI/UX Requirements
+The application must achieve a pixel-perfect replication of the original application's visual design, layout, and component styling.
 
-## 6. Non-Functional Requirements
+#### 4.3.1. General Layout
+* **Page Background:** Light gray (`#e0e0e0`).
+* **Content Area:** Centered on the screen, resembling a white paper sheet (`white`), with a subtle shadow (`box-shadow: 0 0 10px rgba(0,0,0,0.1)`).
+* **Dimensions:** The main content area is fixed at `9.27in` width and `12in` height per page, with `0.75in` padding. The application must support multiple pages, indicated by "Page 1", "Page 2", etc., at the bottom center of each page.
+* **Typography:**
+    * **Font Family:** Primarily Arial, sans-serif.
+    * **Base Font Size:** 10pt.
+    * **Title Font Size:** 13pt.
+    * **Text Color:** Black.
 
-*   **Improved Architecture:** The new implementation should prioritize a modular, scalable, and maintainable codebase. This includes clear separation of concerns (UI, business logic, data handling), use of modern web development best practices, and potentially a suitable framework (e.g., React, Vue, Angular) or a well-structured vanilla JavaScript approach.
-*   **Comprehensive Documentation:** The codebase must be thoroughly documented, including inline comments, JSDoc (or similar) for functions/components, and a clear project README.md.
-*   **Exact Interface and Functionality Replication:** The new application must visually and functionally match the provided HTML snapshot and screenshot precisely. Any deviation in appearance or user interaction is considered a bug.
-*   **Performance:** The application should be responsive and perform calculations efficiently, even with a large number of special damages entries.
-*   **Accessibility:** Basic accessibility standards should be considered to ensure usability for a wider range of users.
-*   **Responsiveness:** While the current version hides content on small screens, the new version should ideally be responsive or at least gracefully handle different screen sizes, or clearly indicate its intended desktop-only use if that's the design choice. (Based on the current HTML, it seems to be designed for larger screens, with a `mobile-detection-message` that hides content on small screens. This behavior should be replicated or improved upon if feasible within the scope).
-</response>
-</plan_mode_respond>
+#### 4.3.2. Header Section
+* **Checkboxes:** Left-aligned group for toggling calculation sections ("Calculate prejudgment interest", "Show postjudgment interest", "Show per diem"). Checkboxes must be custom styled with a blue border (`#3a7bc8`) and a blue checkmark (`#4a90e2`) when checked.
+* **Case Info Inputs:** Right-aligned group for case details.
+    * **Jurisdiction:** Dropdown with "British Columbia" and "Ontario".
+    * **File No.:** Text input.
+    * **Registry:** Text input, default value "Vancouver".
+* **Title:** "Court Order Interest Act Calculator". The title must dynamically update based on the selected jurisdiction (e.g., to reflect the Ontario *Courts of Justice Act*).
+* **Action Buttons:**
+    * **Print Button:** Blue background (`#4a90e2`), white text.
+    * **Clear Button:** Red background (`#e74c3c`), white text.
+* **Input Field Styling:** Inputs will have a light blue background (`#e0f2f7`), no border, padding, and show a blue outline (`#3a7bc8`) on hover and a gray outline (`#a0a0a0`) on focus.
+
+#### 4.3.3. Summary & Calculation Tables
+* **Structure:** All tables (Summary, Prejudgment, Postjudgment) will have a consistent design with a light gray (`#f0f0f0`) header and 1px black borders on all cells.
+* **Summary Table:** A three-column layout (Item, Date, Amount) for displaying totals.
+* **Calculation Tables:** Five-column layout (Date, Description, Rate, Principal, Interest).
+* **Special Damages Rows:** Must be dynamically added/removed within the prejudgment table. Rows contain editable inputs for Date, Description, and Amount, and a delete icon. These rows must also display calculated interest details (days, rate, interest) when applicable.
+
+#### 4.3.4. Other UI Elements
+* **Help Icons:** A small blue circle with a white `?`. Displays a tooltip with help text on hover.
+* **Demo Mode Visuals:**
+    * **Banner (Print Only):** A banner must appear at the top of the printed output (and print preview) explaining that mock rates are in use.
+    * **Watermark (Screen & Print):** A large, semi-transparent, rotated "Mock Interest Rates" watermark must be overlaid on the main content area.
+
+## 5. Non-Functional Requirements
+
+* **Architecture:** The application must be built with a **decoupled architecture**. The core calculation logic must be separate from the UI presentation layer, allowing for independent testing and maintenance.
+* **Code Quality & Documentation:**
+    * **Style Guide:** Code must adhere to the Airbnb JavaScript Style Guide, enforced with a linter (e.g., ESLint).
+    * **Documentation:** All public functions, classes, and modules must have JSDoc comments explaining their purpose, parameters, and return values.
+    * **README:** The project README.md must include clear setup, development, testing, and deployment instructions.
+* **Performance:** The UI must remain responsive, with calculations executing instantly upon user input changes.
+* **Browser Compatibility:** The application must be fully functional and visually consistent on the latest versions of modern desktop browsers (Chrome, Firefox, Safari, Edge).
+* **Accessibility:** The application should meet WCAG 2.1 Level AA guidelines where applicable, particularly concerning color contrast, keyboard navigation, and screen reader support.
+
+## 6. Acceptance Criteria & Test Cases
+
+The following test cases must pass to consider the implementation complete.
+
+* **Test Case 1: Simple Prejudgment Calculation (BC)**
+    * **Inputs:** Jurisdiction: BC, General Damages: $10,000, Prejudgment Start Date: 2023-01-01, Judgment Date: 2024-01-01
+    * **Expected Output:** Total Prejudgment Interest: **$513.38**
+
+* **Test Case 2: Calculation with Special Damages (BC)**
+    * **Inputs:** Jurisdiction: BC, Prejudgment Start Date: 2023-02-01, Judgment Date: 2024-09-15, Special Damages as specified in original test case.
+    * **Expected Logic:** Must correctly apply the 6-month batching rule for BC special damages.
+
+* **Test Case 3: Postjudgment Calculation (BC)**
+    * **Inputs:** Jurisdiction: BC, Total Judgment Amount: $12,345.67, Judgment Date: 2024-12-15, Postjudgment End Date: 2025-03-15
+    * **Expected Output:** Total Postjudgment Interest: **$190.04**
+
+* **Test Case 4: Standard Calculation (ON)**
+    * **Inputs:** Jurisdiction: ON, General Damages: $25,000, Prejudgment Start Date: 2023-03-15 (Q1 2023), Judgment Date: 2025-01-15
+    * **Expected Logic & Output:**
+        * The system must identify the rate for Q1 2023 from the Ontario table (e.g., 5.0%).
+        * This single rate must be applied for the entire prejudgment period from 2023-03-15 to 2025-01-14.
+        * The calculation should not be segmented even though rates change in subsequent quarters.
