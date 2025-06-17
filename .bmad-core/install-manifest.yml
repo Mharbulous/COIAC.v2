@@ -1,10 +1,12 @@
 {
   "version": "4.4.2",
-  "installed_at": "2025-06-17T05:06:32.201Z",
+  "installed_at": "2025-06-17T05:11:06.698Z",
   "install_type": "full",
   "agent": null,
   "ide_setup": null,
-  "ides_setup": [],
+  "ides_setup": [
+    "roo"
+  ],
   "files": [
     {
       "path": ".bmad-core\\bmad-core-config.yml",
