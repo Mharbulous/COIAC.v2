@@ -1,11 +1,11 @@
 {
   "version": "4.4.2",
-  "installed_at": "2025-06-17T05:11:06.698Z",
+  "installed_at": "2025-06-17T05:27:48.589Z",
   "install_type": "full",
   "agent": null,
   "ide_setup": null,
   "ides_setup": [
-    "roo"
+    "cursor"
   ],
   "files": [
     {
